@@ -1,0 +1,338 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: VCU GCMR GCMF BCU
+VAL_TABLE_ FMI 22 "Data Drifted Low" 21 "Data Drifted High" 20 "Received Network Data In Error" 0 "Above normal (most severe)" 1 "Below normal (most severe)" 2 "Data erratic" 3 "Voltage above normal" 4 "Voltage below normal" 5 "Current below normal" 6 "Current above normal" 7 "Mechanical system not responding" 8 "Abnormal frequency" 9 "Abnormal update rate" 10 "Abnormal rate of change" 11 "Root cause not known" 12 "Bad intelligent device" 13 "Out of calibration" 14 "Special intstructions" 15 "Above normal (least severe)" 16 "Above normal (moderately severe)" 17 "Below normal (least severe)" 18 "Below normal (moderately severe)" 19 "Received network data in error" 31 "Condition Exists" ;
+VAL_TABLE_ Ports 21 "Global (All ports)" 0 "Local" ;
+
+
+BO_ 2348941089 TC1: 8 BCU
+ SG_ AutoNeutralReq : 48|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode8 : 62|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode7 : 60|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode6 : 58|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode5 : 56|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TrnsShftSlectorDisplayModeSwitch : 54|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransRequestedLaunchGear : 50|4@1+ (1,0) [0|15] ""  VCU,GCMR,GCMF
+ SG_ TransMode4 : 46|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode3 : 44|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode2 : 42|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode1 : 40|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransLoadReductionInhibitRq : 38|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqCentralRear : 36|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqCentralFront : 34|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqCentral : 32|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqRearAxle2 : 30|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqRearAxle1 : 28|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqFrontAxle2 : 26|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqFrontAxle1 : 24|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransRequestedGear : 16|8@1+ (1,-125) [-64|64] ""  VCU,GCMR,GCMF
+ SG_ RequestedPercentClutchSlip : 8|8@1+ (0.4,0) [0|100] "%"  VCU,GCMR,GCMF
+ SG_ TransReverseGearShiftInhibitRq : 6|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDrivelineRq : 4|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TrnsTrqeConverterLockupDisableRq : 2|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransGearShiftInhibitRq : 0|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+
+
+
+CM_ BO_ 2348941089 "Transmission Control 1
+Messages that are requesting control over the receiving device are transmitted at high rate only during the time when the control is active, but may be optionally sent at a slow rate as a \"heartbeat.\"";
+CM_ SG_ 2348941089 AutoNeutralReq "This parameter conveys a vehicle system desire to override the operator’s current shift selector request (e.g. Drive, Reverse) and shift the transmission into Neutral. “Manual Return” indicates this parameter has the ability to initiate a ...";
+CM_ SG_ 2348941089 TransMode8 "Indicates whether transmission mode 8 is enabled. Modes are manufacturer specific and are not necessarily mutually exclusive. See also SPN 4253.
+
+00  Disable
+01  Enable
+10  Reserved
+11  Take no action";
+CM_ SG_ 2348941089 TransMode7 "Indicates whether transmission mode 7 is enabled. Modes are manufacturer specific and are not necessarily mutually exclusive. See also SPN 4252.
+
+00  Disable
+01  Enable
+10  Reserved
+11  Take no action";
+CM_ SG_ 2348941089 TransMode6 "Indicates whether transmission mode 6 is enabled. Modes are manufacturer specific and are not necessarily mutually exclusive. See also SPN 4251.
+
+00  Disable
+01  Enable
+10  Reserved
+11  Take no action";
+CM_ SG_ 2348941089 TransMode5 "Indicates whether transmission mode 5 is enabled. Modes are manufacturer specific and are not necessarily mutually exclusive. See also SPN 4250.
+
+00  Disable
+01  Enable
+10  Reserved
+11  Take no action";
+CM_ SG_ 2348941089 TrnsShftSlectorDisplayModeSwitch "Status of the operator’s switch used to ‘toggle’ through multiple display modes of a shift selector display.
+When a shift selector display is capable of displaying more than just range information, this switch is toggled by the operator to move ...";
+CM_ SG_ 2348941089 TransRequestedLaunchGear "Initial gear for the transmission to start out in when the vehicle is launched from a standing stop, as specified by the vehicle operator or vehicle system.  Automatic transmissions typically default to starting out in 1st gear.  However, in ...";
+CM_ SG_ 2348941089 TransMode4 "Indicates whether transmission mode 4 is enabled.  Modes are manufacturer specific and are not necessarily mutually exclusive.  See also SPN 2539.
+
+00 Disable
+01 Enable
+10 Reserved
+11 Take no action";
+CM_ SG_ 2348941089 TransMode3 "Indicates whether transmission mode 3 is enabled.  Modes are manufacturer specific and are not necessarily mutually exclusive.  See also SPN 2538.
+
+00 Disable
+01 Enable
+10 Reserved
+11 Take no action";
+CM_ SG_ 2348941089 TransMode2 "Indicates whether transmission mode 2 is enabled.  Modes are manufacturer specific and are not necessarily mutually exclusive.  See also SPN 2537.
+
+00 Disable
+01 Enable
+10 Reserved
+11 Take no action";
+CM_ SG_ 2348941089 TransMode1 "Indicates whether transmission mode 1 is enabled.  Modes are manufacturer specific and are not necessarily mutually exclusive.  See also SPN 2536.
+
+00 Disable
+01 Enable
+10 Reserved
+11 Take no action";
+CM_ SG_ 2348941089 TransLoadReductionInhibitRq "Request signal to the transmission to inhibit activation of load reduction functions.
+Automatic transmissions may incorporate functions designed to reduce engine load during certain operating conditions (vehicle standstill at bus stop, traffic ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqCentralRear "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqCentralFront "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqCentral "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqRearAxle2 "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqRearAxle1 "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqFrontAxle2 "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqFrontAxle1 "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 TransRequestedGear "Gear requested by the operator, ABS, or engine.
+Negative values are reverse gears, positive values are forward gears, zero is neutral, parameter specific indicators are listed below.
+Parameter specific values for this parameter are as follows:
+ ...";
+CM_ SG_ 2348941089 RequestedPercentClutchSlip "Parameter which represents the percent clutch slip requested by a device.";
+CM_ SG_ 2348941089 TransReverseGearShiftInhibitRq "Allows devices external to the normal transmission shift selector system to request the transmission to inhibit shifts into any Reverse gear and force the transmission into Neutral if it is currently in Reverse or attempting to shift to Reverse ...";
+CM_ SG_ 2348941089 DisengageDrivelineRq "Command signal used to simply disengage the driveline, e.g., to prevent engine drag torque from causing high wheel slip on slippery surfaces.
+00 Allow driveline engagement
+01 Disengage driveline
+10 Reserved
+11 Take no action
+Note:  If this ...";
+CM_ SG_ 2348941089 TrnsTrqeConverterLockupDisableRq "Command signal to override normal transmission control of the torque converter lockup clutch. This command may be used to control lockup as needed for different operating modes or environmental conditions. For example, the torque converter lockup ...";
+CM_ SG_ 2348941089 TransGearShiftInhibitRq "Command signal to inhibit gear shifts.
+
+00 Gear shifts are allowed  (disable function)
+01 Gear shifts are inhibited  (enable function)
+10 Reserved
+11 Take no action  (leave function as is)";
+BA_DEF_  "DBName" STRING ;
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_  "SigType" ENUM  "Default","Range","RangeSigned","ASCII","Discrete","Control","ReferencePGN","DTC","StringDelimiter","StringLength","StringLengthControl","MessageCounter","MessageChecksum";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 2147483647;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigILSupport" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigEVName" STRING ;
+BA_DEF_ SG_  "SPN" INT 0 524287;
+BA_DEF_ BO_  "TpJ1939VarDlc" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 1000000;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 3600000;
+BA_DEF_ BO_  "GenMsgFastOnStart" INT 0 100000;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 100000;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 1000;
+BA_DEF_ BO_  "GenMsgRequestable" INT 0 1;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "cyclic","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","IfActive","noMsgSendType";
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","J1939PG";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 3600000;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "NmStationAddress" INT 0 255;
+BA_DEF_ BU_  "NmJ1939AAC" INT 0 1;
+BA_DEF_ BU_  "NmJ1939IndustryGroup" INT 0 7;
+BA_DEF_ BU_  "NmJ1939System" INT 0 127;
+BA_DEF_ BU_  "NmJ1939SystemInstance" INT 0 15;
+BA_DEF_ BU_  "NmJ1939Function" INT 0 255;
+BA_DEF_ BU_  "NmJ1939FunctionInstance" INT 0 7;
+BA_DEF_ BU_  "NmJ1939ECUInstance" INT 0 3;
+BA_DEF_ BU_  "NmJ1939ManufacturerCode" INT 0 2047;
+BA_DEF_ BU_  "NmJ1939IdentityNumber" INT 0 2097151;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_  "SAE_J1939_DA_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_81_SpecVersion" STRING ;
+BA_DEF_  "DatabaseVersion" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "ProtocolType" STRING ;
+BA_DEF_  "SAE_J1939_75_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_21_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_73_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_71_SpecVersion" STRING ;
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "SigType" "Default";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "NoSigSendType";
+BA_DEF_DEF_  "GenSigILSupport" "Yes";
+BA_DEF_DEF_  "GenSigEVName" "Env@Nodename_@Signame";
+BA_DEF_DEF_  "SPN" 0;
+BA_DEF_DEF_  "TpJ1939VarDlc" "No";
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgFastOnStart" 0;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgRequestable" 1;
+BA_DEF_DEF_  "GenMsgSendType" "noMsgSendType";
+BA_DEF_DEF_  "VFrameFormat" "J1939PG";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "NmStationAddress" 254;
+BA_DEF_DEF_  "NmJ1939AAC" 0;
+BA_DEF_DEF_  "NmJ1939IndustryGroup" 0;
+BA_DEF_DEF_  "NmJ1939System" 0;
+BA_DEF_DEF_  "NmJ1939SystemInstance" 0;
+BA_DEF_DEF_  "NmJ1939Function" 0;
+BA_DEF_DEF_  "NmJ1939FunctionInstance" 0;
+BA_DEF_DEF_  "NmJ1939ECUInstance" 0;
+BA_DEF_DEF_  "NmJ1939ManufacturerCode" 0;
+BA_DEF_DEF_  "NmJ1939IdentityNumber" 0;
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "SAE_J1939_DA_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_81_SpecVersion" "";
+BA_DEF_DEF_  "DatabaseVersion" "";
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "ProtocolType" "";
+BA_DEF_DEF_  "SAE_J1939_75_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_21_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_73_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_71_SpecVersion" "";
+BA_ "SAE_J1939_71_SpecVersion" "2016-10";
+BA_ "SAE_J1939_73_SpecVersion" "2013-07";
+BA_ "SAE_J1939_21_SpecVersion" "2016-03";
+BA_ "SAE_J1939_75_SpecVersion" "2015-11";
+BA_ "ProtocolType" "J1939";
+BA_ "BusType" "CAN";
+BA_ "DatabaseVersion" "10.0";
+BA_ "SAE_J1939_81_SpecVersion" "2017-03";
+BA_ "SAE_J1939_DA_SpecVersion" "2018-02";
+BA_ "DBName" "J1939";
+BA_ "NmStationAddress" BU_ VCU 90;
+BA_ "NmStationAddress" BU_ GCMR 4;
+BA_ "NmStationAddress" BU_ GCMF 3;
+BA_ "NmStationAddress" BU_ BCU 33;
+BA_ "GenMsgCycleTime" BO_ 2348941089 50;
+BA_ "GenMsgSendType" BO_ 2348941089 0;
+BA_ "VFrameFormat" BO_ 2348941089 3;
+BA_ "SPN" SG_ 2348941089 AutoNeutralReq 7695;
+BA_ "SigType" SG_ 2348941089 AutoNeutralReq 5;
+BA_ "SPN" SG_ 2348941089 TransMode8 4249;
+BA_ "SigType" SG_ 2348941089 TransMode8 5;
+BA_ "SPN" SG_ 2348941089 TransMode7 4248;
+BA_ "SigType" SG_ 2348941089 TransMode7 5;
+BA_ "SPN" SG_ 2348941089 TransMode6 4247;
+BA_ "SigType" SG_ 2348941089 TransMode6 5;
+BA_ "SPN" SG_ 2348941089 TransMode5 4246;
+BA_ "SigType" SG_ 2348941089 TransMode5 5;
+BA_ "SPN" SG_ 2348941089 TrnsShftSlectorDisplayModeSwitch 2985;
+BA_ "SigType" SG_ 2348941089 TrnsShftSlectorDisplayModeSwitch 4;
+BA_ "SPN" SG_ 2348941089 TransRequestedLaunchGear 4255;
+BA_ "SigType" SG_ 2348941089 TransRequestedLaunchGear 0;
+BA_ "SPN" SG_ 2348941089 TransMode4 1855;
+BA_ "SigType" SG_ 2348941089 TransMode4 5;
+BA_ "SPN" SG_ 2348941089 TransMode3 1854;
+BA_ "SigType" SG_ 2348941089 TransMode3 5;
+BA_ "SPN" SG_ 2348941089 TransMode2 1853;
+BA_ "SigType" SG_ 2348941089 TransMode2 5;
+BA_ "SPN" SG_ 2348941089 TransMode1 1852;
+BA_ "SigType" SG_ 2348941089 TransMode1 5;
+BA_ "SPN" SG_ 2348941089 TransLoadReductionInhibitRq 5762;
+BA_ "SigType" SG_ 2348941089 TransLoadReductionInhibitRq 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqCentralRear 691;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqCentralRear 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqCentralFront 690;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqCentralFront 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqCentral 689;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqCentral 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqRearAxle2 688;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqRearAxle2 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqRearAxle1 687;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqRearAxle1 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqFrontAxle2 686;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqFrontAxle2 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqFrontAxle1 685;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqFrontAxle1 5;
+BA_ "SPN" SG_ 2348941089 TransRequestedGear 525;
+BA_ "GenSigStartValue" SG_ 2348941089 TransRequestedGear 61;
+BA_ "SigType" SG_ 2348941089 TransRequestedGear 1;
+BA_ "SPN" SG_ 2348941089 RequestedPercentClutchSlip 684;
+BA_ "SigType" SG_ 2348941089 RequestedPercentClutchSlip 1;
+BA_ "SPN" SG_ 2348941089 TransReverseGearShiftInhibitRq 4242;
+BA_ "SigType" SG_ 2348941089 TransReverseGearShiftInhibitRq 5;
+BA_ "SPN" SG_ 2348941089 DisengageDrivelineRq 683;
+BA_ "SigType" SG_ 2348941089 DisengageDrivelineRq 5;
+BA_ "SPN" SG_ 2348941089 TrnsTrqeConverterLockupDisableRq 682;
+BA_ "SigType" SG_ 2348941089 TrnsTrqeConverterLockupDisableRq 5;
+BA_ "SPN" SG_ 2348941089 TransGearShiftInhibitRq 681;
+BA_ "SigType" SG_ 2348941089 TransGearShiftInhibitRq 5;
+VAL_ 2348941089 AutoNeutralReq 3 "Don’t Care / Take No Action" 2 "Reserved" 1 "Request to shift to Auto-Neutral state" 0 "No request to shift to Auto-Neutral state" ;
+VAL_ 2348941089 TransMode8 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode7 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode6 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode5 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TrnsShftSlectorDisplayModeSwitch 3 "Not available" 2 "Error" 1 "On" 0 "Off" ;
+VAL_ 2348941089 TransRequestedLaunchGear 15 "Not Available" 14 "Error" 13 "Allow transmission to select the optimum launch gear" 12 "Launch the vehicle in Reverse 4" 11 "Launch the vehicle in Reverse 3" 10 "Launch the vehicle in Reverse 2" 9 "Launch the vehicle in Reverse 1" 8 "Launch the vehicle in 8th gear" 7 "Launch the vehicle in 7th gear" 6 "Launch the vehicle in 6th gear" 5 "Launch the vehicle in 5th gear" 4 "Launch the vehicle in 4th gear" 3 "Launch the vehicle in 3rd gear" 2 "Launch the vehicle in 2nd gear" 1 "Launch the vehicle in 1st gear" 0 "No specific launch gear requested" ;
+VAL_ 2348941089 TransMode4 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode3 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode2 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode1 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransLoadReductionInhibitRq 3 "Don't care/take no action" 2 "Reserved" 1 "Inhibit or abort transmission load reduction functions" 0 "Allow or resume transmission load reduction functions" ;
+VAL_ 2348941089 DisengageDiffLockRqCentralRear 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqCentralFront 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqCentral 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqRearAxle2 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqRearAxle1 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqFrontAxle2 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqFrontAxle1 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 TransRequestedGear 223 "Reverse Selector Position" 224 "Position unknown and/or no buttons pressed" 225 "Press of momentary button to reselect current position" 226 "Between ‘Reverse’ and ‘Park’ shift selector positions" 227 "Between ‘Neutral’ and ‘Reverse’ shift selector positions" 228 "Between ‘Drive’ and ‘Neutral’ shift selector positions" 229 "Between D-1 and ‘Drive’ shift selector positions" 230 "Between D-2 and D-1 shift selector positions" 231 "Between D-3 and D-2 shift selector positions" 232 "Between D-4 and D-3 shift selector positions" 233 "Between D-5 and D-4 shift selector positions" 234 "Between D-6 and D-5 shift selector positions" 235 "Between D-7 and D-6 shift selector positions" 236 "Between two forward shift selector positions" 237 "Between two reverse shift selector positions" 238 "Between two shift selector positions" 239 "D-7: 7th forward selector position referenced from ‘Drive’" 240 "D-6: 6th forward selector position referenced from ‘Drive’" 241 "D-5: 5th forward selector position referenced from ‘Drive’" 242 "D-4: 4th forward selector position referenced from ‘Drive’" 243 "D-3: 3rd forward selector position referenced from ‘Drive’" 244 "D-2: 2nd forward selector position referenced from ‘Drive’" 245 "D-1: 1st forward selector position referenced from ‘Drive’" 246 "Downshift 2 gears from current position" 247 "Downshift 1 gear from current position" 248 "Upshift 2 gears from current position" 249 "Upshift 1 gear from current position" 250 "Forward ‘Low’ position" 251 "‘Park’ position" 252 "Forward Drive Position" 253 "Hold current gear" ;
+VAL_ 2348941089 TransReverseGearShiftInhibitRq 3 "Take no action" 2 "Reserved" 1 "Inhibit shifts into Reverse gear" 0 "Allow shifts into Reverse gear" ;
+VAL_ 2348941089 DisengageDrivelineRq 3 "Take no action" 2 "Reserved" 1 "Disengage driveline" 0 "Allow driveline engagement" ;
+VAL_ 2348941089 TrnsTrqeConverterLockupDisableRq 3 "Take no action" 2 "Request torque converter lockup" 1 "Disable torque converter lockup" 0 "Allow torque converter lockup" ;
+VAL_ 2348941089 TransGearShiftInhibitRq 3 "Take no action " 2 "Reserved" 1 "Gear shifts are inhibited " 0 "Gear shifts are allowed " ;
+

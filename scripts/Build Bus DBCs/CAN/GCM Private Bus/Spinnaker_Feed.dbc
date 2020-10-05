@@ -1,0 +1,158 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: PUMP CCU
+VAL_TABLE_ OverVoltage 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_TABLE_ MotorMode 3 "N/A" 2 "Running" 1 "Starting" 0 "Stopped" ;
+VAL_TABLE_ FailedStart 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_TABLE_ InputParamOutOfRange 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_TABLE_ CurrentLimiting 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_TABLE_ OverCurrent 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_TABLE_ LowVoltage_MaxPWM 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_TABLE_ Ramp 3 "Ramp #3" 2 "Ramp #2" 1 "Ramp #1" 0 "Ramp #0" ;
+VAL_TABLE_ CommandStatus 62 "Fault" 20 "Stopped" 9 "Starting" 1 "Running" ;
+VAL_TABLE_ ModeStatus 3 "Not Available" ;
+VAL_TABLE_ Mode 3 "Not Available" 2 "Error" 1 "24V" 0 "12V" ;
+VAL_TABLE_ Command 19 "Shutdown" 1 "Run" ;
+VAL_TABLE_ CurrentLimit 254 "N/A" 253 "N/A" 252 "N/A" 249 "Limit to 12A" 248 "Limit to 12A" 247 "Limit to 12A" 246 "Limit to 12A" 245 "Limit to 12A" 244 "Limit to 12A" 243 "Limit to 12A" 242 "Limit to 12A" 241 "Limit to 12A" 240 "Limit to 12A" 239 "Limit to 12A" 238 "Limit to 12A" 237 "Limit to 12A" 236 "Limit to 12A" 235 "Limit to 12A" 234 "Limit to 12A" 233 "Limit to 12A" 232 "Limit to 12A" 231 "Limit to 12A" 230 "Limit to 12A" 229 "Limit to 12A" 228 "Limit to 12A" 227 "Limit to 12A" 226 "Limit to 12A" 225 "Limit to 12A" 224 "Limit to 12A" 223 "Limit to 12A" 222 "Limit to 12A" 221 "Limit to 12A" 220 "Limit to 12A" 219 "Limit to 12A" 218 "Limit to 12A" 217 "Limit to 12A" 216 "Limit to 12A" 215 "Limit to 12A" 214 "Limit to 12A" 213 "Limit to 12A" 212 "Limit to 12A" 211 "Limit to 12A" 210 "Limit to 12A" 209 "Limit to 12A" 208 "Limit to 12A" 207 "Limit to 12A" 206 "Limit to 12A" 205 "Limit to 12A" 204 "Limit to 12A" 203 "Limit to 12A" 202 "Limit to 12A" 201 "Limit to 12A" 200 "Limit to 12A" 199 "Limit to 12A" 198 "Limit to 12A" 197 "Limit to 12A" 196 "Limit to 12A" 195 "Limit to 12A" 194 "Limit to 12A" 193 "Limit to 12A" 192 "Limit to 12A" 191 "Limit to 12A" 190 "Limit to 12A" 189 "Limit to 12A" 188 "Limit to 12A" 187 "Limit to 12A" 186 "Limit to 12A" 185 "Limit to 12A" 184 "Limit to 12A" 183 "Limit to 12A" 182 "Limit to 12A" 181 "Limit to 12A" 180 "Limit to 12A" 179 "Limit to 12A" 178 "Limit to 12A" 177 "Limit to 12A" 176 "Limit to 12A" 175 "Limit to 12A" 174 "Limit to 12A" 173 "Limit to 12A" 172 "Limit to 12A" 171 "Limit to 12A" 170 "Limit to 12A" 169 "Limit to 12A" 168 "Limit to 12A" 167 "Limit to 12A" 166 "Limit to 12A" 165 "Limit to 12A" 164 "Limit to 12A" 163 "Limit to 12A" 162 "Limit to 12A" 161 "Limit to 12A" 160 "Limit to 12A" 159 "Limit to 12A" 158 "Limit to 12A" 157 "Limit to 12A" 156 "Limit to 12A" 155 "Limit to 12A" 154 "Limit to 12A" 153 "Limit to 12A" 152 "Limit to 12A" 151 "Limit to 12A" 150 "Limit to 12A" 149 "Limit to 12A" 148 "Limit to 12A" 147 "Limit to 12A" 146 "Limit to 12A" 145 "Limit to 12A" 144 "Limit to 12A" 143 "Limit to 12A" 142 "Limit to 12A" 141 "Limit to 12A" 140 "Limit to 12A" 139 "Limit to 12A" 138 "Limit to 12A" 137 "Limit to 12A" 136 "Limit to 12A" 135 "Limit to 12A" 134 "Limit to 12A" 133 "Limit to 12A" 132 "Limit to 12A" 131 "Limit to 12A" 130 "Limit to 12A" 129 "Limit to 12A" 128 "Limit to 12A" 127 "Limit to 12A" 126 "Limit to 12A" 125 "Limit to 12A" 124 "Limit to 12A" 123 "Limit to 12A" 122 "Limit to 12A" 121 "Limit to 12A" 120 "Limit to 12A" 119 "Limit to 12A" 118 "Limit to 12A" 117 "Limit to 12A" 116 "Limit to 12A" 115 "Limit to 12A" 114 "Limit to 12A" 113 "Limit to 12A" 112 "Limit to 12A" 111 "Limit to 12A" 110 "Limit to 12A" 109 "Limit to 12A" 108 "Limit to 12A" 107 "Limit to 12A" 106 "Limit to 12A" 105 "Limit to 12A" 104 "Limit to 12A" 103 "Limit to 12A" 102 "Limit to 12A" 101 "Limit to 12A" 100 "Limit to 12A" 99 "Limit to 12A" 98 "Limit to 12A" 97 "Limit to 12A" 96 "Limit to 12A" 95 "Limit to 12A" 94 "Limit to 12A" 93 "Limit to 12A" 92 "Limit to 12A" 91 "Limit to 12A" 90 "Limit to 12A" 89 "Limit to 12A" 88 "Limit to 12A" 87 "Limit to 12A" 86 "Limit to 12A" 85 "Limit to 12A" 84 "Limit to 12A" 83 "Limit to 12A" 82 "Limit to 12A" 81 "Limit to 12A" 80 "Limit to 12A" 79 "Limit to 12A" 78 "Limit to 12A" 77 "Limit to 12A" 76 "Limit to 12A" 75 "Limit to 12A" 74 "Limit to 12A" 73 "Limit to 12A" 72 "Limit to 12A" 71 "Limit to 12A" 70 "Limit to 12A" 69 "Limit to 12A" 68 "Limit to 12A" 67 "Limit to 12A" 66 "Limit to 12A" 65 "Limit to 12A" 64 "Limit to 12A" 63 "Limit to 12A" 62 "Limit to 12A" 61 "Limit to 12A" 60 "Limit to 12A" 59 "Limit to 12A" 58 "Limit to 12A" 57 "Limit to 12A" 56 "Limit to 12A" 55 "Limit to 12A" 54 "Limit to 12A" 53 "Limit to 12A" 52 "Limit to 12A" 51 "Limit to 12A" 50 "Limit to 12A" 49 "Limit to 12A" 48 "Limit to 12A" 47 "Limit to 12A" 46 "Limit to 12A" 45 "Limit to 12A" 44 "Limit to 12A" 43 "Limit to 12A" 42 "Limit to 12A" 41 "Limit to 12A" 40 "Limit to 12A" 39 "Limit to 12A" 38 "Limit to 12A" 37 "Limit to 12A" 36 "Limit to 12A" 35 "Limit to 12A" 34 "Limit to 12A" 33 "Limit to 12A" 32 "Limit to 12A" 31 "Limit to 12A" 30 "Limit to 12A" 29 "Limit to 12A" 28 "Limit to 12A" 27 "Limit to 12A" 26 "Limit to 12A" 25 "Limit to 12A" 24 "Limit to 12A" 23 "Limit to 12A" 22 "Limit to 12A" 21 "Limit to 12A" 20 "Limit to 12A" 19 "Limit to 12A" 18 "Limit to 12A" 17 "Limit to 12A" 16 "Limit to 12A" 15 "Limit to 12A" 14 "Limit to 12A" 13 "Limit to 12A" 12 "Limit to 12A" 11 "Limit to 11A" 255 "N/A" 251 "N/A" 250 "Limit to 12A" 10 "Limit to 10 A" 9 "Limit to 9 A" 8 "Limit to 8 A" 7 "Limit to 7 A" 6 "Limit to 6 A" 5 "Limit to 5 A" 4 "Limit to 4 A" 3 "Limit to 3 A" 2 "Limit to 2 A" 1 "Limit to 1 A" 0 "Limit to 7 A" ;
+
+
+BO_ 2583680530 Status: 8 PUMP
+ SG_ Software : 40|8@1+ (1,0) [0|255] "Rev"  CCU
+ SG_ Voltage : 24|8@1+ (0.2,0) [0|50] "V"  CCU
+ SG_ Current : 16|8@1+ (0.05,0) [0|12.5] "A"  CCU
+ SG_ FailedStart : 62|2@1+ (1,0) [0|3] ""  CCU
+ SG_ IPOR : 60|2@1+ (1,0) [0|3] ""  CCU
+ SG_ CurrentLimiting : 58|2@1+ (1,0) [0|3] ""  CCU
+ SG_ MotorMode : 56|2@1+ (1,0) [0|3] ""  CCU
+ SG_ OverVoltage : 54|2@1+ (1,0) [0|3] ""  CCU
+ SG_ OverCurrent : 52|2@1+ (1,0) [0|3] ""  CCU
+ SG_ LowVoltage : 50|2@1+ (1,0) [0|3] ""  CCU
+ SG_ LostIgnition : 48|2@1+ (1,0) [0|3] ""  CCU
+ SG_ Temperature : 32|8@1+ (1,-40) [-40|210] "DegC"  CCU
+ SG_ SpeedFeedback : 0|16@1+ (1,-32127) [-32127|32128] "RPM"  CCU
+
+BO_ 2382353408 Command: 8 CCU
+ SG_ RunCommand : 16|8@1+ (1,0) [0|255] ""  PUMP
+ SG_ SpeedCommand : 0|16@1+ (1,-32127) [-32127|32128] "RPM"  PUMP
+
+
+
+BA_DEF_ SG_  "SigType" ENUM  "Default","Range","RangeSigned","ASCII","Discrete","Control","ReferencePGN","DTC","StringDelimiter","StringLength","StringLengthControl";
+BA_DEF_ SG_  "GenSigEVName" STRING ;
+BA_DEF_ SG_  "GenSigILSupport" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ BO_  "GenMsgFastOnStart" INT 0 100000;
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 3600000;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 1000000;
+BA_DEF_ SG_  "GenSigStartValue" INT 0 10000;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 1000;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 100000;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "NmJ1939SystemInstance" INT 0 15;
+BA_DEF_ BU_  "NmJ1939System" INT 0 127;
+BA_DEF_ BU_  "NmJ1939ManufacturerCode" INT 0 2047;
+BA_DEF_ BU_  "NmJ1939IndustryGroup" INT 0 7;
+BA_DEF_ BU_  "NmJ1939IdentityNumber" INT 0 2097151;
+BA_DEF_ BU_  "NmJ1939FunctionInstance" INT 0 7;
+BA_DEF_ BU_  "NmJ1939Function" INT 0 255;
+BA_DEF_ BU_  "NmJ1939ECUInstance" INT 0 3;
+BA_DEF_ BU_  "NmJ1939AAC" INT 0 1;
+BA_DEF_ BU_  "NmStationAddress" INT 0 255;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "cyclic","NotUsed","IfActive","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","noMsgSendType";
+BA_DEF_ BO_  "GenMsgRequestable" INT 0 1;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 3600000;
+BA_DEF_ SG_  "SPN" INT 0 524287;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "ProtocolType" STRING ;
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","J1939PG";
+BA_DEF_DEF_  "SigType" "Default";
+BA_DEF_DEF_  "GenSigEVName" "Env@Nodename_@Signame";
+BA_DEF_DEF_  "GenSigILSupport" "Yes";
+BA_DEF_DEF_  "GenSigSendType" "NoSigSendType";
+BA_DEF_DEF_  "GenMsgFastOnStart" 0;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "NmJ1939SystemInstance" 0;
+BA_DEF_DEF_  "NmJ1939System" 0;
+BA_DEF_DEF_  "NmJ1939ManufacturerCode" 0;
+BA_DEF_DEF_  "NmJ1939IndustryGroup" 0;
+BA_DEF_DEF_  "NmJ1939IdentityNumber" 0;
+BA_DEF_DEF_  "NmJ1939FunctionInstance" 0;
+BA_DEF_DEF_  "NmJ1939Function" 0;
+BA_DEF_DEF_  "NmJ1939ECUInstance" 0;
+BA_DEF_DEF_  "NmJ1939AAC" 0;
+BA_DEF_DEF_  "NmStationAddress" 254;
+BA_DEF_DEF_  "GenMsgSendType" "noMsgSendType";
+BA_DEF_DEF_  "GenMsgRequestable" 1;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "SPN" 0;
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "ProtocolType" "J1939";
+BA_DEF_DEF_  "VFrameFormat" "J1939PG";
+BA_ "DBName" "Project_Spinnaker_D4_12";
+BA_ "NmStationAddress" BU_ PUMP 18;
+BA_ "NmStationAddress" BU_ CCU 0;
+BA_ "VFrameFormat" BO_ 2583680530 3;
+BA_ "GenMsgCycleTime" BO_ 2382353408 20;
+BA_ "GenMsgSendType" BO_ 2382353408 0;
+BA_ "VFrameFormat" BO_ 2382353408 3;
+BA_ "GenSigStartValue" SG_ 2583680530 Voltage 0;
+BA_ "GenSigStartValue" SG_ 2583680530 Current 0;
+BA_ "GenSigStartValue" SG_ 2583680530 SpeedFeedback 0;
+BA_ "SPN" SG_ 2382353408 RunCommand 0;
+BA_ "GenSigStartValue" SG_ 2382353408 SpeedCommand 0;
+VAL_ 2583680530 FailedStart 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_ 2583680530 IPOR 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_ 2583680530 CurrentLimiting 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_ 2583680530 MotorMode 3 "Low RPM Mode" 2 "N/A" 1 "Running" 0 "Stopped" ;
+VAL_ 2583680530 OverVoltage 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_ 2583680530 OverCurrent 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_ 2583680530 LowVoltage 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_ 2583680530 LostIgnition 3 "N/A" 2 "Invalid" 1 "Active" 0 "Not Active" ;
+VAL_ 2382353408 RunCommand 211 "Stop" 193 "Run" ;
+

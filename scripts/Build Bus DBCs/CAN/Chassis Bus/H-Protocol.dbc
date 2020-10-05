@@ -1,0 +1,218 @@
+VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY/4/%%%/4/'%**4YYY///"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: Diagnostics Motor_Control VCU
+VAL_TABLE_ ControlWord 9 "FAULT RESET" 6 "SHUTDOWN" 5 "ENABLE" 3 "ENERGISE" 0 "No command" ;
+VAL_TABLE_ TorqueLimitReason 8 "DC current cutback" 7 "DC voltage cutback" 6 "Bridge not enabled" 5 "3d lookup table limit" 4 "User limits received" 3 "Thermals" 2 "Motor power limit map" 1 "Max power limit" 0 "No limit" ;
+VAL_TABLE_ StatusWord 13 "Fault off" 8 "Enabled" 7 "Energized" 4 "Precharge" 2 "Shutdown" 1 "Not ready to switch on" ;
+VAL_TABLE_ Heartbeat 127 "System in pre-operational mode" 5 "System in operational mode" 0 "boot-up" ;
+VAL_TABLE_ OperationValues 128 "Return to pre-operational" 1 "Enable operational" ;
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ New_Signal_76 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ New_Signal_73 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Heartbeat : 0|8@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 2568814449 HS5_Encoder_Info: 8 Motor_Control
+ SG_ Encoder_pos : 0|32@1- (1.52587890625E-005,0) [0|0] "rotations" Vector__XXX
+
+BO_ 2569928561 HD6_Debug_Control_Data_FV: 8 Vector__XXX
+ SG_ Debug_Recip_Flux : 48|16@1- (1,0) [0|0] "1/A" Vector__XXX
+ SG_ Debug_Iq_max : 32|16@1- (1,0) [0|0] "A" Vector__XXX
+ SG_ Debug_Lm_Sat : 16|16@1- (1.52587890625E-005,0) [0|0] "H" Vector__XXX
+ SG_ Debug_Slip : 0|16@1- (0.0625,0) [0|0] "rad/s" Vector__XXX
+
+BO_ 2568188273 HC4_Debug_Demands: 8 Motor_Control
+ SG_ CS_DirectCurrents : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SEQ_DirectCurrents : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Debug_Id_direct_control : 16|16@1- (0.0625,0) [0|0] "A" Vector__XXX
+ SG_ Debug_Iq_direct_control : 0|16@1- (0.0625,0) [0|0] "A" Vector__XXX
+
+BO_ 2569863025 HD5_Debug_Control_Data_PMAC: 8 Motor_Control
+ SG_ Debug_Ls : 48|16@1- (5.960464477539E-008,0) [0|0] "H" Vector__XXX
+ SG_ Debug_Iq_max : 32|16@1- (1,0) [0|0] "A" Vector__XXX
+ SG_ Debug_Iv_lim : 16|16@1- (1,0) [0|0] "A" Vector__XXX
+ SG_ Debug_max_flux : 0|16@1- (1,0) [0|0] "A" Vector__XXX
+
+BO_ 2569797489 HD4_Debug_Temperatures_B: 8 Motor_Control
+ SG_ Debug_Temps_Winding : 56|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Debug_Temps_Coolant : 48|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Debug_Temps_Normalised : 40|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Delta_Tj : 32|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Heatsink : 24|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Cap_Estimate_Slow : 16|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Track : 8|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Cap_Estimate_Fast : 0|8@1+ (1,0) [0|255] "degC" Vector__XXX
+
+BO_ 2569731953 HD3_Debug_Temperatures_A: 8 Motor_Control
+ SG_ Debug_Temps_Motor_Measured : 48|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Motor_Estimate : 56|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Junction_5 : 40|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Junction_4 : 32|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Junction_3 : 24|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Junction_2 : 16|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Junction_1 : 8|8@1+ (1,0) [0|255] "degC" Vector__XXX
+ SG_ Debug_Temps_Junction_0 : 0|8@1+ (1,0) [0|255] "degC" Vector__XXX
+
+BO_ 2569666417 HD2_Debug_Voltages: 8 Motor_Control
+ SG_ Debug_Torque_Control : 48|16@1- (0.0625,0) [0|0] "Nm" Vector__XXX
+ SG_ Debug_Mod_Index : 32|16@1+ (0.0030517578125,0) [0|0] "%" Vector__XXX
+ SG_ Debug_Uq : 16|16@1- (0.0625,0) [0|0] "V" Vector__XXX
+ SG_ Debug_Ud : 0|16@1- (0.0625,0) [0|0] "V" Vector__XXX
+
+BO_ 2569600881 HD1_Debug_Currents: 8 Motor_Control
+ SG_ Debug_Iq_ref : 48|16@1- (0.0625,0) [0|0] "A" Vector__XXX
+ SG_ Debug_Id_ref : 32|16@1- (0.0625,0) [0|0] "A" Vector__XXX
+ SG_ Debug_Iq_act : 16|16@1- (0.0625,0) [0|0] "A" Vector__XXX
+ SG_ Debug_Id_act : 0|16@1- (0.0625,0) [0|0] "A" Vector__XXX
+
+BO_ 2568748913 HS4_Fault_Info: 8 Motor_Control
+ SG_ CS_Fault : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ SEQ_Fault : 48|8@1+ (1,0) [0|255] ""  VCU
+ SG_ FaultData : 16|24@1- (1,0) [0|0] ""  VCU
+ SG_ FaultCode : 0|16@1- (1,0) [0|0] ""  VCU
+
+BO_ 2568617841 HS2_Status_Feedback: 8 Motor_Control
+ SG_ Torque_Limit_Code : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Torque_Available_Reverse : 16|16@1- (0.0625,0) [0|0] "Nm"  VCU
+ SG_ Torque_Available_Forward : 0|16@1- (0.0625,0) [0|0] "Nm"  VCU
+ SG_ SEQ_Status : 48|8@1+ (1,0) [0|255] ""  VCU
+ SG_ CS_Status : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ InverterStatus : 32|8@1+ (1,0) [0|255] "-"  VCU
+
+BO_ 2568683377 HS3_Temperature_Feedback: 8 Motor_Control
+ SG_ DC_Link_Voltage : 32|16@1- (0.0625,0) [-2048|2047.9375] "V"  VCU
+ SG_ SEQ_Temp : 48|8@1+ (1,0) [0|255] ""  VCU
+ SG_ CS_Temp : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ MotorTemperature : 16|16@1- (1,0) [-32768|32767] "C"  VCU
+ SG_ Temperature_Remaining : 0|16@1- (1,0) [-32768|32767] "C"  VCU
+
+BO_ 2568057201 HC2_Demands: 8 VCU
+ SG_ SEQ_Command2 : 48|8@1+ (1,0) [0|255] ""  Motor_Control
+ SG_ CS_Command2 : 56|8@1+ (1,0) [0|255] ""  Motor_Control
+ SG_ Speed_Limit_Reverse : 32|16@1- (1,0) [-32768|32767] "RPM"  Motor_Control
+ SG_ Torque_Regen_Limit : 0|16@1- (0.0625,0) [0|0] "Nm"  Motor_Control
+ SG_ Speed_Limit_Forward : 16|16@1- (1,0) [-32768|32767] "RPM"  Motor_Control
+
+BO_ 2567991665 HC1_Demands: 8 VCU
+ SG_ SEQ_Command1 : 48|8@1+ (1,0) [0|255] ""  Motor_Control
+ SG_ CS_Command1 : 56|8@1+ (1,0) [0|255] ""  Motor_Control
+ SG_ Torque_Traction_Limit : 32|16@1- (0.0625,0) [0|0] "Nm"  Motor_Control
+ SG_ ControlWord : 16|16@1- (1,0) [0|0] ""  Motor_Control
+ SG_ Torque_Request : 0|16@1- (0.0625,0) [0|0] "Nm"  Motor_Control
+
+BO_ 2568552305 HS1_Torque_Feedback: 8 Motor_Control
+ SG_ DC_Link_Current : 32|16@1- (1,0) [-32768|32767] "A"  VCU
+ SG_ Speed_Measured : 16|16@1- (1,0) [-32768|32767] "RPM"  VCU
+ SG_ SEQ_Torque : 48|8@1+ (1,0) [0|255] ""  VCU
+ SG_ CS_Torque : 56|8@1+ (1,0) [0|255] ""  VCU
+ SG_ Torque_Measured : 0|16@1- (0.0625,0) [0|0] "Nm"  VCU
+
+BO_ 2568122737 HC3_Battery_Demands: 8 VCU
+ SG_ DC_Link_Voltage_Target : 32|16@1- (0.0625,0) [0|0] "V" Vector__XXX
+ SG_ SEQ_CurrentLimits : 48|8@1+ (1,0) [0|255] ""  Motor_Control
+ SG_ CS_CurrentLimits : 56|8@1+ (1,0) [0|255] ""  Motor_Control
+ SG_ DC_Link_Imax_Recharge : 16|16@1- (1,0) [-1000|0] "A"  Motor_Control
+ SG_ DC_Link_Imax_Discharge : 0|16@1- (1,0) [0|1000] "A"  Motor_Control
+
+
+
+CM_ BU_ Motor_Control "Torque generating inverter";
+CM_ BU_ VCU "Central vehicle control unit, responsible for generating torque demands for the inverter";
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+CM_ SG_ 2569666417 Debug_Torque_Control "Torque that is to be used as the control value for caluclating current references";
+CM_ SG_ 2568748913 CS_Fault "Command1 message checksum";
+CM_ SG_ 2568748913 SEQ_Fault "Command1 message sequence counter";
+CM_ BO_ 2568617841 "To command the anciliary switch";
+CM_ SG_ 2568617841 Torque_Available_Reverse "Torque available calculated by inverter";
+CM_ SG_ 2568617841 Torque_Available_Forward "Torque available calculated by inverter";
+CM_ SG_ 2568617841 SEQ_Status "Status message sequence counter";
+CM_ SG_ 2568617841 CS_Status "Status message checksum";
+CM_ SG_ 2568617841 InverterStatus "Inverter status (TBD)";
+CM_ BO_ 2568683377 "To command the anciliary switch";
+CM_ SG_ 2568683377 SEQ_Temp "Temperature message sequence counter";
+CM_ SG_ 2568683377 CS_Temp "Temperature message checksum";
+CM_ SG_ 2568683377 MotorTemperature "Measured motor temperature";
+CM_ SG_ 2568683377 Temperature_Remaining "Inverter module temperature";
+CM_ BO_ 2568057201 "Active derates and values";
+CM_ SG_ 2568057201 SEQ_Command2 "Command2 message sequence counter";
+CM_ SG_ 2568057201 CS_Command2 "Command2 message checksum";
+CM_ SG_ 2568057201 Speed_Limit_Reverse "Maximum reverse speed of motor";
+CM_ SG_ 2568057201 Torque_Regen_Limit "Torque limit specified by VCM";
+CM_ SG_ 2568057201 Speed_Limit_Forward "Maximum forward speed of motor";
+CM_ BO_ 2567991665 "Active derates and values";
+CM_ SG_ 2567991665 SEQ_Command1 "Command1 message sequence counter";
+CM_ SG_ 2567991665 CS_Command1 "Command1 message checksum";
+CM_ SG_ 2567991665 Torque_Traction_Limit "Max torque calculated by VCM";
+CM_ SG_ 2567991665 ControlWord "Control word that sets inverter mode of operation";
+CM_ SG_ 2567991665 Torque_Request "Motor torque requested by VCM";
+CM_ BO_ 2568552305 "To command the anciliary switch";
+CM_ SG_ 2568552305 DC_Link_Current "Net current flow measured by the inverter";
+CM_ SG_ 2568552305 Speed_Measured "Measured motor speed by inverter";
+CM_ SG_ 2568552305 SEQ_Torque "Torque message sequence counter";
+CM_ SG_ 2568552305 CS_Torque "Torque message checksum";
+CM_ SG_ 2568552305 Torque_Measured "Torque calculated by DSP in inverter";
+CM_ BO_ 2568122737 "Response back to BMS";
+CM_ SG_ 2568122737 DC_Link_Voltage_Target "Min motor current calculated by VCM (regen)";
+CM_ SG_ 2568122737 SEQ_CurrentLimits "Current limits message sequence counter";
+CM_ SG_ 2568122737 CS_CurrentLimits "Current limits message checksum";
+CM_ SG_ 2568122737 DC_Link_Imax_Recharge "Min motor current calculated by VCM (regen)";
+CM_ SG_ 2568122737 DC_Link_Imax_Discharge "Max motor current calculated by VCM (traction)";
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","J1939PG";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "VFrameFormat" "J1939PG";
+BA_DEF_DEF_  "BusType" "";
+BA_ "BusType" "CAN";
+BA_ "VFrameFormat" BO_ 2568814449 1;
+BA_ "VFrameFormat" BO_ 2569928561 3;
+BA_ "VFrameFormat" BO_ 2568188273 3;
+BA_ "VFrameFormat" BO_ 2569863025 3;
+BA_ "VFrameFormat" BO_ 2569797489 3;
+BA_ "VFrameFormat" BO_ 2569731953 3;
+BA_ "VFrameFormat" BO_ 2569666417 3;
+BA_ "VFrameFormat" BO_ 2569600881 3;
+BA_ "VFrameFormat" BO_ 2568748913 3;
+BA_ "VFrameFormat" BO_ 2568617841 3;
+BA_ "VFrameFormat" BO_ 2568683377 3;
+BA_ "VFrameFormat" BO_ 2568057201 3;
+BA_ "VFrameFormat" BO_ 2567991665 3;
+BA_ "VFrameFormat" BO_ 2568552305 3;
+BA_ "VFrameFormat" BO_ 2568122737 3;
+VAL_ 3221225472 Heartbeat 127 "System in pre-operational mode" 5 "System in operational mode" 0 "boot-up" ;
+VAL_ 2568617841 Torque_Limit_Code 8 "DC current cutback" 7 "DC voltage cutback" 6 "Bridge not enabled" 5 "3d lookup table limit" 4 "User limits received" 3 "Thermals" 2 "Motor power limit map" 1 "Max power limit" 0 "No limit" ;
+VAL_ 2568617841 InverterStatus 13 "Fault off" 8 "Enabled" 7 "Energized" 4 "Precharge" 2 "Shutdown" 1 "Not ready to switch on" ;
+VAL_ 2567991665 ControlWord 9 "FAULT RESET" 6 "SHUTDOWN" 5 "ENABLE" 3 "ENERGISE" 0 "No command" ;
+

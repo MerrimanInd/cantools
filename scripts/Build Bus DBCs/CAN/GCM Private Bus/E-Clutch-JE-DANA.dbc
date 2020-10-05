@@ -1,0 +1,208 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: ECM_MOTOR ECU_eClutch
+
+
+BO_ 325 SignalR2: 8 ECU_eClutch
+ SG_ signalR2 : 55|16@0+ (1,0) [0|65535] ""  ECM_MOTOR
+ SG_ signalR1 : 39|16@0+ (1,0) [0|65535] ""  ECM_MOTOR
+ SG_ VehicleSpeed : 23|16@0+ (0.015625,0) [0|1023.984375] "km/h"  ECM_MOTOR
+ SG_ counter : 15|4@0+ (1,0) [0|15] ""  ECM_MOTOR
+ SG_ checksum : 7|8@0+ (1,0) [0|255] ""  ECM_MOTOR
+
+BO_ 320 SignalR1: 8 ECU_eClutch
+ SG_ EngineSpeed : 55|16@0+ (0.25,0) [0|16383.75] "rpm"  ECM_MOTOR
+ SG_ VehicleOdometer : 23|32@0+ (0.015625,0) [0|67108863.984375] "km"  ECM_MOTOR
+ SG_ counter : 15|4@0+ (1,0) [0|15] ""  ECM_MOTOR
+ SG_ checksum : 7|8@0+ (1,0) [0|255] ""  ECM_MOTOR
+
+BO_ 274 SendMsg1: 8 ECM_MOTOR
+ SG_ Uphase : 11|10@0+ (0.195,-100) [-100|99.485] ""  ECU_eClutch
+ SG_ Vphase : 16|10@0+ (0.195,-100) [-100|99.485] ""  ECU_eClutch
+ SG_ Wphase : 37|10@0+ (0.195,-100) [-100|99.485] ""  ECU_eClutch
+ SG_ UphaseValid : 17|1@0+ (1,0) [0|1] ""  ECU_eClutch
+ SG_ VphaseValid : 38|1@0+ (1,0) [0|1] ""  ECU_eClutch
+ SG_ signalT1 : 55|16@0+ (1,0) [0|65535] ""  ECU_eClutch
+ SG_ checksum : 7|8@0+ (1,0) [0|255] ""  ECU_eClutch
+ SG_ counter : 15|4@0+ (1,0) [0|15] ""  ECU_eClutch
+ SG_ WphaseValid : 43|1@0+ (1,0) [0|1] ""  ECU_eClutch
+
+BO_ 276 SendMsg3: 8 ECM_MOTOR
+ SG_ FaultID : 23|32@0+ (1,0) [0|4294967295] ""  ECU_eClutch
+ SG_ RequestValue : 55|15@0+ (1,0) [0|32767] ""  ECU_eClutch
+ SG_ currentMode : 11|4@0+ (1,0) [0|15] ""  ECU_eClutch
+ SG_ checksum : 7|8@0+ (1,0) [0|255] ""  ECU_eClutch
+ SG_ counter : 15|4@0+ (1,0) [0|15] ""  ECU_eClutch
+
+BO_ 256 Send_ModeSet: 8 ECU_eClutch
+ SG_ ClutchOpenPositionValid : 48|1@0+ (1,0) [0|1] ""  ECM_MOTOR
+ SG_ ClutchOpenPosition : 63|8@0+ (0.1,0) [0|25.5] "rev"  ECM_MOTOR
+ SG_ TargetPositionValid : 49|1@0+ (1,0) [0|1] ""  ECM_MOTOR
+ SG_ targetValue : 23|15@0+ (1,0) [0|32767] ""  ECM_MOTOR
+ SG_ faultClear : 24|1@0+ (1,0) [0|1] ""  ECM_MOTOR
+ SG_ TorqueLimit : 39|10@0+ (0.0977,0) [0|99.9471] ""  ECM_MOTOR
+ SG_ SpeedLimit : 45|12@0+ (2.442,0) [0|9999.99] ""  ECM_MOTOR
+ SG_ mode : 11|4@0+ (1,0) [0|15] ""  ECM_MOTOR
+ SG_ checksum : 7|8@0+ (1,0) [0|255] ""  ECM_MOTOR
+ SG_ counter : 15|4@0+ (1,0) [0|15] ""  ECM_MOTOR
+
+BO_ 257 SendMsg2: 8 ECM_MOTOR
+ SG_ counter : 15|4@0+ (1,0) [0|15] ""  ECU_eClutch
+ SG_ checksum : 7|8@0+ (1,0) [0|255] ""  ECU_eClutch
+ SG_ KL30Current : 11|11@0+ (0.0489,0) [0|100.0983] ""  ECU_eClutch
+ SG_ KL30CurrentValid : 16|1@0+ (1,0) [0|1] ""  ECU_eClutch
+ SG_ KL30Voltage : 31|7@0+ (0.237,0) [0|30.099] ""  ECU_eClutch
+ SG_ KL30VoltageValid : 24|1@0+ (1,0) [0|1] ""  ECU_eClutch
+ SG_ speed : 39|15@0+ (0.6104,-10000) [-10000|10000.9768] ""  ECU_eClutch
+ SG_ speedValid : 40|1@0+ (1,0) [0|1] ""  ECU_eClutch
+ SG_ position : 55|15@0+ (0.001526,-25) [-25|25.002442] ""  ECU_eClutch
+ SG_ positionValid : 56|1@0+ (1,0) [0|1] ""  ECU_eClutch
+
+BO_ 304 SendMsg4: 8 ECM_MOTOR
+ SG_ checksum : 7|8@0+ (1,0) [0|255] ""  ECU_eClutch
+ SG_ counter : 15|4@0+ (1,0) [0|15] ""  ECU_eClutch
+ SG_ MotorTemperature : 47|8@0+ (1,-60) [-60|195] ""  ECU_eClutch
+ SG_ MotorTorque : 31|15@0+ (0.0001525,-2) [-2|2.9969675] ""  ECU_eClutch
+ SG_ MotorTorqueValid : 32|1@0+ (1,0) [0|1] ""  ECU_eClutch
+ SG_ BoardTemperature : 23|8@0+ (1,-60) [-60|195] ""  ECU_eClutch
+ SG_ BoardTemperatureValid : 8|1@0+ (1,0) [0|1] ""  ECU_eClutch
+ SG_ Iq : 55|15@0+ (0.01,-160) [-160|167.67] ""  ECU_eClutch
+ SG_ IqValid : 56|1@0+ (1,0) [0|1] ""  ECU_eClutch
+
+BO_ 352 SendMsg5: 8 ECM_MOTOR
+ SG_ FaultClearFinishFlag : 11|1@0+ (1,0) [0|1] ""  ECU_eClutch
+ SG_ signalT3 : 55|16@0+ (1,0) [0|65535] ""  ECU_eClutch
+ SG_ checksum : 7|8@0+ (1,0) [0|255] ""  ECU_eClutch
+ SG_ counter : 15|4@0+ (1,0) [0|15] ""  ECU_eClutch
+ SG_ FaultDiagnosisStatus : 23|32@0+ (1,0) [0|4294967295] ""  ECU_eClutch
+
+BO_ 336 SignalR: 8 ECU_eClutch
+ SG_ FaultClearRequest : 61|1@0+ (1,0) [0|1] ""  ECM_MOTOR
+ SG_ ECUErrState : 8|1@0+ (1,0) [0|1] ""  ECM_MOTOR
+ SG_ EngineState : 63|2@0+ (1,0) [0|3] ""  ECM_MOTOR
+ SG_ EngCoolantTempValid : 10|1@0+ (1,0) [0|1] ""  ECM_MOTOR
+ SG_ EngineDowntimeValid : 11|1@0+ (1,0) [0|1] ""  ECM_MOTOR
+ SG_ EnvTempValid : 9|1@0+ (1,0) [0|1] ""  ECM_MOTOR
+ SG_ EnvTemp : 55|8@0+ (1,-40) [-40|215] "¡æ"  ECM_MOTOR
+ SG_ EngCoolantTemp : 47|8@0+ (1,-40) [-40|215] "¡æ"  ECM_MOTOR
+ SG_ EngineDowntime : 23|24@0+ (1,0) [0|16777215] "s"  ECM_MOTOR
+ SG_ checksum : 7|8@0+ (1,0) [0|255] ""  ECM_MOTOR
+ SG_ counter : 15|4@0+ (1,0) [0|15] ""  ECM_MOTOR
+
+
+
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT -3.4E+038 3.4E+038;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_ "BusType" "CAN";
+BA_ "GenMsgCycleTime" BO_ 325 10;
+BA_ "GenMsgCycleTime" BO_ 320 10;
+BA_ "GenMsgCycleTime" BO_ 274 10;
+BA_ "GenMsgCycleTime" BO_ 276 10;
+BA_ "GenMsgCycleTime" BO_ 256 10;
+BA_ "GenMsgCycleTime" BO_ 257 10;
+BA_ "GenMsgCycleTime" BO_ 304 10;
+BA_ "GenMsgCycleTime" BO_ 352 10;
+BA_ "GenMsgCycleTime" BO_ 336 10;
+BA_ "GenSigStartValue" SG_ 325 signalR2 0;
+BA_ "GenSigStartValue" SG_ 325 signalR1 0;
+BA_ "GenSigStartValue" SG_ 325 counter 0;
+BA_ "GenSigStartValue" SG_ 325 checksum 0;
+BA_ "GenSigStartValue" SG_ 320 counter 0;
+BA_ "GenSigStartValue" SG_ 320 checksum 0;
+BA_ "GenSigStartValue" SG_ 274 Uphase 512.820512820513;
+BA_ "GenSigStartValue" SG_ 274 Vphase 512.820512820513;
+BA_ "GenSigStartValue" SG_ 274 Wphase 512.820512820513;
+BA_ "GenSigStartValue" SG_ 274 UphaseValid 0;
+BA_ "GenSigStartValue" SG_ 274 VphaseValid 0;
+BA_ "GenSigStartValue" SG_ 274 signalT1 0;
+BA_ "GenSigStartValue" SG_ 274 checksum 0;
+BA_ "GenSigStartValue" SG_ 274 counter 0;
+BA_ "GenSigStartValue" SG_ 274 WphaseValid 0;
+BA_ "GenSigStartValue" SG_ 276 FaultID 0;
+BA_ "GenSigStartValue" SG_ 276 RequestValue 0;
+BA_ "GenSigStartValue" SG_ 276 currentMode 0;
+BA_ "GenSigStartValue" SG_ 276 checksum 0;
+BA_ "GenSigStartValue" SG_ 276 counter 0;
+BA_ "GenSigStartValue" SG_ 256 ClutchOpenPositionValid 0;
+BA_ "GenSigStartValue" SG_ 256 ClutchOpenPosition 0;
+BA_ "GenSigStartValue" SG_ 256 TargetPositionValid 0;
+BA_ "GenSigStartValue" SG_ 256 targetValue 0;
+BA_ "GenSigStartValue" SG_ 256 faultClear 0;
+BA_ "GenSigStartValue" SG_ 256 TorqueLimit 0;
+BA_ "GenSigStartValue" SG_ 256 SpeedLimit 0;
+BA_ "GenSigStartValue" SG_ 256 mode 0;
+BA_ "GenSigStartValue" SG_ 256 checksum 0;
+BA_ "GenSigStartValue" SG_ 256 counter 0;
+BA_ "GenSigStartValue" SG_ 257 counter 0;
+BA_ "GenSigStartValue" SG_ 257 checksum 0;
+BA_ "GenSigStartValue" SG_ 257 KL30Current 0;
+BA_ "GenSigStartValue" SG_ 257 KL30CurrentValid 0;
+BA_ "GenSigStartValue" SG_ 257 KL30Voltage 0;
+BA_ "GenSigStartValue" SG_ 257 KL30VoltageValid 0;
+BA_ "GenSigStartValue" SG_ 257 speed 16382.6998689384;
+BA_ "GenSigStartValue" SG_ 257 speedValid 0;
+BA_ "GenSigStartValue" SG_ 257 position 16382.6998689384;
+BA_ "GenSigStartValue" SG_ 257 positionValid 0;
+BA_ "GenSigStartValue" SG_ 304 checksum 0;
+BA_ "GenSigStartValue" SG_ 304 counter 0;
+BA_ "GenSigStartValue" SG_ 304 MotorTemperature 60;
+BA_ "GenSigStartValue" SG_ 304 MotorTorque 13114.7540983607;
+BA_ "GenSigStartValue" SG_ 304 MotorTorqueValid 0;
+BA_ "GenSigStartValue" SG_ 304 BoardTemperature 60;
+BA_ "GenSigStartValue" SG_ 304 BoardTemperatureValid 0;
+BA_ "GenSigStartValue" SG_ 304 Iq 16000;
+BA_ "GenSigStartValue" SG_ 304 IqValid 0;
+BA_ "GenSigStartValue" SG_ 352 signalT3 0;
+BA_ "GenSigStartValue" SG_ 352 checksum 0;
+BA_ "GenSigStartValue" SG_ 352 counter 0;
+BA_ "GenSigStartValue" SG_ 352 FaultDiagnosisStatus 0;
+BA_ "GenSigStartValue" SG_ 336 ECUErrState 0;
+BA_ "GenSigStartValue" SG_ 336 EngineState 0;
+BA_ "GenSigStartValue" SG_ 336 EngCoolantTempValid 0;
+BA_ "GenSigStartValue" SG_ 336 EngineDowntimeValid 0;
+BA_ "GenSigStartValue" SG_ 336 EnvTempValid 0;
+BA_ "GenSigStartValue" SG_ 336 EnvTemp 40;
+BA_ "GenSigStartValue" SG_ 336 EngCoolantTemp 40;
+BA_ "GenSigStartValue" SG_ 336 EngineDowntime 0;
+BA_ "GenSigStartValue" SG_ 336 checksum 0;
+BA_ "GenSigStartValue" SG_ 336 counter 0;
+VAL_ 276 currentMode 0 "AppPowerStageOffMode" 2 "AppTorqueMode" 3 "AppSpeedMode" 4 "AppPositionMode" 1 "AppSpecialControlMode" 5 "AppShutdownMode" ;
+VAL_ 256 mode 0 "AppPowerStageOffMode" 2 "AppTorqueMode" 3 "AppSpeedMode" 4 "AppPositionMode" 1 "AppSpecialControlMode" 5 "AppShutdownMode" ;
+

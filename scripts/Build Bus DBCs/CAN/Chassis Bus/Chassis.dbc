@@ -1,0 +1,242 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: TCU BCU VCU SCM
+VAL_TABLE_ Bolllinger_TempState 5 "Temp Setting 6 ('Hottest')" 4 "Temp Setting 5 ('Hotter')" 3 "Temp Setting 4 ('Hot')" 2 "Temp Setting 3 ('Cold')" 1 "Temp Setting 2 ('Colder')" 0 "Temp Setting 1 ('Coldest')" ;
+VAL_TABLE_ Bollinger_FanState 3 "Fan On Speed High" 2 "Fan On Speed Medium" 1 "Fan On Speed Low" 0 "Fan Off" ;
+VAL_TABLE_ Bollinger_RqSw 3 "Switch Neutral Engaged" 2 "Switch Down Request Made Waiting" 1 "Switch Up Request Made Waiting" 0 "Switch Neutral Not Engaged" ;
+
+
+BO_ 2566869039 SCMSTATUS: 8 SCM
+ SG_ SCMCalVersion : 8|8@1+ (1,0) [0|0] ""  BCU
+ SG_ SCMSwVersion : 0|8@1+ (1,0) [0|0] ""  BCU
+
+BO_ 2566856737 BCUSW: 8 BCU
+ SG_ CabinTempRq : 8|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ FanSpRq : 11|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ SwStatusAirCon : 6|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ SwStatusRecirc : 4|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ SwStatusSuspension : 2|2@1+ (1,0) [0|0] ""  SCM
+ SG_ SwStatusDefrost : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2365346095 ASC7: 8 SCM
+ SG_ RRAxleStatus : 9|3@1+ (1,0) [0|7] ""  BCU,VCU
+ SG_ FRAxleStatus : 6|3@1+ (1,0) [0|7] ""  BCU,VCU
+ SG_ RLAxleStatus : 3|3@1+ (1,0) [0|7] ""  BCU,VCU
+ SG_ FLAxleStatus : 0|3@1+ (1,0) [0|7] ""  BCU,VCU
+
+BO_ 2566805551 ASC4: 8 SCM
+ SG_ BellowPressRearAxleRight : 48|16@1+ (0.1,0) [0|6425.5] "kPa"  VCU
+ SG_ BellowPressRearAxleLeft : 32|16@1+ (0.1,0) [0|6425.5] "kPa"  VCU
+ SG_ BellowPressFrontAxleRight : 16|16@1+ (0.1,0) [0|6425.5] "kPa"  VCU
+ SG_ BellowPressFrontAxleLeft : 0|16@1+ (0.1,0) [0|6425.5] "kPa"  VCU
+
+BO_ 2566805807 ASC3: 8 SCM
+ SG_ RelativeLevelRearAxleRight : 48|16@1+ (0.1,-3200) [-3200|3225.5] "mm"  VCU
+ SG_ RelativeLevelRearAxleLeft : 32|16@1+ (0.1,-3200) [-3200|3225.5] "mm"  VCU
+ SG_ RelativeLevelFrontAxleRight : 16|16@1+ (0.1,-3200) [-3200|3225.5] "mm"  VCU
+ SG_ RelativeLevelFrontAxleLeft : 0|16@1+ (0.1,-3200) [-3200|3225.5] "mm"  VCU
+
+
+
+CM_ BO_ 2566869039 "Incomplete Rq Timing";
+CM_ BO_ 2365346095 "Air Suspension Control 7
+Used for suspension control information";
+CM_ SG_ 2365346095 RRAxleStatus "Indicates the status of a tag axle 1.  Numbering of lift/tag axles starts at front axle.  SPN 1743 may be used if less detail is acceptable.
+000 - Down (tag axle is laden)
+001 - Unloading (load is being transferred from the tag axle)
+010 - ...";
+CM_ SG_ 2365346095 FRAxleStatus "Indicates the status of a tag axle 1.  Numbering of lift/tag axles starts at front axle.  SPN 1743 may be used if less detail is acceptable.
+000 - Down (tag axle is laden)
+001 - Unloading (load is being transferred from the tag axle)
+010 - ...";
+CM_ SG_ 2365346095 RLAxleStatus "Indicates the status of a tag axle 2.  Numbering of lift/tag axles starts at front axle.  SPN 1822 may be used if less detail is acceptable.
+000 - Down (tag axle is laden)
+001 - Unloading (load is being transferred from the tag axle)
+010 - ...";
+CM_ SG_ 2365346095 FLAxleStatus "Indicates the status of a tag axle 1.  Numbering of lift/tag axles starts at front axle.  SPN 1743 may be used if less detail is acceptable.
+000 - Down (tag axle is laden)
+001 - Unloading (load is being transferred from the tag axle)
+010 - ...";
+CM_ BO_ 2566805551 "Air Suspension Control 4
+Used for bellow pressure information";
+CM_ SG_ 2566805551 BellowPressRearAxleRight "Information of the pressure of the air suspension bellow at the right side of the rear axle";
+CM_ SG_ 2566805551 BellowPressRearAxleLeft "Information of the pressure of the air suspension bellow at the left side of the rear axle";
+CM_ SG_ 2566805551 BellowPressFrontAxleRight "Information of the pressure of the air suspension bellow at the right side of the front axle";
+CM_ SG_ 2566805551 BellowPressFrontAxleLeft "Information of the pressure of the air suspension bellow at the left side of the front axle";
+CM_ BO_ 2566805807 "Air Suspension Control 3
+Used for height information";
+CM_ SG_ 2566805807 RelativeLevelRearAxleRight "Information of the height at the left side of the rear axle referred to normal level 1.  For explanations of normal level 1 see parameter SPN 1734 - Nominal Level Front Axle.";
+CM_ SG_ 2566805807 RelativeLevelRearAxleLeft "Information of the height at the left side of the rear axle referred to normal level 1.  For explanations of normal level 1 see parameter SPN 1734 - Nominal Level Front Axle.";
+CM_ SG_ 2566805807 RelativeLevelFrontAxleRight "Information of the height at the right side of the front axle referred to normal level 1.  For explanations of normal level 1 see SPN 1734 - Nominal Level Front Axle.";
+CM_ SG_ 2566805807 RelativeLevelFrontAxleLeft "Information of the height at the left side of the front axle referred to normal level 1.  For explanations of normal level 1 see SPN 1734 - Nominal Level Front Axle.";
+BA_DEF_  "DBName" STRING ;
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_  "SigType" ENUM  "Default","Range","RangeSigned","ASCII","Discrete","Control","ReferencePGN","DTC","StringDelimiter","StringLength","StringLengthControl","MessageCounter","MessageChecksum";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 2147483647;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigILSupport" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigEVName" STRING ;
+BA_DEF_ SG_  "SPN" INT 0 524287;
+BA_DEF_ BO_  "TpJ1939VarDlc" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 1000000;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 3600000;
+BA_DEF_ BO_  "GenMsgFastOnStart" INT 0 100000;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 100000;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 1000;
+BA_DEF_ BO_  "GenMsgRequestable" INT 0 1;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "cyclic","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","IfActive","noMsgSendType";
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","J1939PG";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 3600000;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "NmStationAddress" INT 0 255;
+BA_DEF_ BU_  "NmJ1939AAC" INT 0 1;
+BA_DEF_ BU_  "NmJ1939IndustryGroup" INT 0 7;
+BA_DEF_ BU_  "NmJ1939System" INT 0 127;
+BA_DEF_ BU_  "NmJ1939SystemInstance" INT 0 15;
+BA_DEF_ BU_  "NmJ1939Function" INT 0 255;
+BA_DEF_ BU_  "NmJ1939FunctionInstance" INT 0 7;
+BA_DEF_ BU_  "NmJ1939ECUInstance" INT 0 3;
+BA_DEF_ BU_  "NmJ1939ManufacturerCode" INT 0 2047;
+BA_DEF_ BU_  "NmJ1939IdentityNumber" INT 0 2097151;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_  "SAE_J1939_DA_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_81_SpecVersion" STRING ;
+BA_DEF_  "DatabaseVersion" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "ProtocolType" STRING ;
+BA_DEF_  "SAE_J1939_75_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_21_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_73_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_71_SpecVersion" STRING ;
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "SigType" "Default";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "NoSigSendType";
+BA_DEF_DEF_  "GenSigILSupport" "Yes";
+BA_DEF_DEF_  "GenSigEVName" "Env@Nodename_@Signame";
+BA_DEF_DEF_  "SPN" 0;
+BA_DEF_DEF_  "TpJ1939VarDlc" "No";
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgFastOnStart" 0;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgRequestable" 1;
+BA_DEF_DEF_  "GenMsgSendType" "noMsgSendType";
+BA_DEF_DEF_  "VFrameFormat" "J1939PG";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "NmStationAddress" 254;
+BA_DEF_DEF_  "NmJ1939AAC" 0;
+BA_DEF_DEF_  "NmJ1939IndustryGroup" 0;
+BA_DEF_DEF_  "NmJ1939System" 0;
+BA_DEF_DEF_  "NmJ1939SystemInstance" 0;
+BA_DEF_DEF_  "NmJ1939Function" 0;
+BA_DEF_DEF_  "NmJ1939FunctionInstance" 0;
+BA_DEF_DEF_  "NmJ1939ECUInstance" 0;
+BA_DEF_DEF_  "NmJ1939ManufacturerCode" 0;
+BA_DEF_DEF_  "NmJ1939IdentityNumber" 0;
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "SAE_J1939_DA_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_81_SpecVersion" "";
+BA_DEF_DEF_  "DatabaseVersion" "";
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "ProtocolType" "";
+BA_DEF_DEF_  "SAE_J1939_75_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_21_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_73_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_71_SpecVersion" "";
+BA_ "SAE_J1939_71_SpecVersion" "2016-10";
+BA_ "SAE_J1939_73_SpecVersion" "2013-07";
+BA_ "SAE_J1939_21_SpecVersion" "2016-03";
+BA_ "SAE_J1939_75_SpecVersion" "2015-11";
+BA_ "ProtocolType" "J1939";
+BA_ "BusType" "CAN";
+BA_ "DatabaseVersion" "10.0";
+BA_ "SAE_J1939_81_SpecVersion" "2017-03";
+BA_ "SAE_J1939_DA_SpecVersion" "2018-02";
+BA_ "DBName" "J1939";
+BA_ "NmStationAddress" BU_ TCU 25;
+BA_ "NmStationAddress" BU_ BCU 33;
+BA_ "NmStationAddress" BU_ VCU 90;
+BA_ "NmStationAddress" BU_ SCM 47;
+BA_ "VFrameFormat" BO_ 2566869039 3;
+BA_ "GenMsgCycleTime" BO_ 2566856737 50;
+BA_ "GenMsgSendType" BO_ 2566856737 0;
+BA_ "VFrameFormat" BO_ 2566856737 3;
+BA_ "GenMsgCycleTime" BO_ 2365346095 100;
+BA_ "GenMsgSendType" BO_ 2365346095 0;
+BA_ "VFrameFormat" BO_ 2365346095 3;
+BA_ "GenMsgCycleTime" BO_ 2566805551 100;
+BA_ "GenMsgSendType" BO_ 2566805551 0;
+BA_ "VFrameFormat" BO_ 2566805551 3;
+BA_ "GenMsgCycleTime" BO_ 2566805807 100;
+BA_ "GenMsgSendType" BO_ 2566805807 0;
+BA_ "VFrameFormat" BO_ 2566805807 3;
+BA_ "SPN" SG_ 2365346095 RRAxleStatus 6843;
+BA_ "SPN" SG_ 2365346095 FRAxleStatus 6843;
+BA_ "SPN" SG_ 2365346095 RLAxleStatus 6844;
+BA_ "SPN" SG_ 2365346095 FLAxleStatus 6843;
+BA_ "SPN" SG_ 2566805551 BellowPressRearAxleRight 1728;
+BA_ "SigType" SG_ 2566805551 BellowPressRearAxleRight 1;
+BA_ "SPN" SG_ 2566805551 BellowPressRearAxleLeft 1727;
+BA_ "SigType" SG_ 2566805551 BellowPressRearAxleLeft 1;
+BA_ "SPN" SG_ 2566805551 BellowPressFrontAxleRight 1726;
+BA_ "SigType" SG_ 2566805551 BellowPressFrontAxleRight 1;
+BA_ "SPN" SG_ 2566805551 BellowPressFrontAxleLeft 1725;
+BA_ "SigType" SG_ 2566805551 BellowPressFrontAxleLeft 1;
+BA_ "SPN" SG_ 2566805807 RelativeLevelRearAxleRight 1723;
+BA_ "SigType" SG_ 2566805807 RelativeLevelRearAxleRight 1;
+BA_ "SPN" SG_ 2566805807 RelativeLevelRearAxleLeft 1724;
+BA_ "SigType" SG_ 2566805807 RelativeLevelRearAxleLeft 1;
+BA_ "SPN" SG_ 2566805807 RelativeLevelFrontAxleRight 1722;
+BA_ "SigType" SG_ 2566805807 RelativeLevelFrontAxleRight 1;
+BA_ "SPN" SG_ 2566805807 RelativeLevelFrontAxleLeft 1721;
+BA_ "SigType" SG_ 2566805807 RelativeLevelFrontAxleLeft 1;
+VAL_ 2566856737 CabinTempRq 5 "Temp Setting 6 ('Hottest')" 4 "Temp Setting 5 ('Hotter')" 3 "Temp Setting 4 ('Hot')" 2 "Temp Setting 3 ('Cold')" 1 "Temp Setting 2 ('Colder')" 0 "Temp Setting 1 ('Coldest')" ;
+VAL_ 2566856737 FanSpRq 3 "Fan On Speed High" 2 "Fan On Speed Medium" 1 "Fan On Speed Low" 0 "Fan Off" ;
+VAL_ 2566856737 SwStatusAirCon 3 "Switch Neutral Engaged" 2 "Switch Down Request Made Waiting" 1 "Switch Up Request Made Waiting" 0 "Switch Neutral Not Engaged" ;
+VAL_ 2566856737 SwStatusRecirc 3 "Switch Neutral Engaged" 2 "Switch Down Request Made Waiting" 1 "Switch Up Request Made Waiting" 0 "Switch Neutral Not Engaged" ;
+VAL_ 2566856737 SwStatusSuspension 3 "Switch Neutral Engaged" 2 "Switch Down Request Made Waiting" 1 "Switch Up Request Made Waiting" 0 "Switch Neutral Not Engaged" ;
+VAL_ 2566856737 SwStatusDefrost 3 "Switch Neutral Engaged" 2 "Switch Down Request Made Waiting" 1 "Switch Up Request Made Waiting" 0 "Switch Neutral Not Engaged" ;
+VAL_ 2365346095 RRAxleStatus 7 "Not available" 6 "Error" 5 "Loading" 4 "Lowering" 3 "Up" 2 "Lifting" 1 "Unloading" 0 "Down" ;
+VAL_ 2365346095 FRAxleStatus 7 "Not available" 6 "Error" 5 "Loading" 4 "Lowering" 3 "Up" 2 "Lifting" 1 "Unloading" 0 "Down" ;
+VAL_ 2365346095 RLAxleStatus 7 "Not available" 6 "Error" 5 "Loading" 4 "Lowering" 3 "Up" 2 "Lifting" 1 "Unloading" 0 "Down" ;
+VAL_ 2365346095 FLAxleStatus 7 "Not available" 6 "Error" 5 "Loading" 4 "Lowering" 3 "Up" 2 "Lifting" 1 "Unloading" 0 "Down" ;
+

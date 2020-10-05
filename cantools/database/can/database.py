@@ -425,3 +425,180 @@ class Database(object):
             lines.append('')
 
         return '\n'.join(lines)
+
+    def merge_dbc(self, fp):
+        """Read and parse DBC data from given file-like object and add the
+        parsed data to the database.
+
+        >>> db = cantools.database.Database()
+        >>> with open ('foo.dbc', 'r') as fin:
+        ...     db.merge_dbc(fin)
+
+        """
+
+        self.merge_dbc_string(fp.read())
+
+    def merge_dbc_file(self, filename, encoding='cp1252'):
+        """Open, read and parse DBC data from given file and add the parsed
+        data to the database.
+
+        `encoding` specifies the file encoding.
+
+        >>> db = cantools.database.Database()
+        >>> db.merge_dbc_file('foo.dbc')
+
+        """
+
+        with fopen(filename, 'r', encoding=encoding) as fin:
+            self.merge_dbc(fin)
+
+    def merge_dbc_string(self, string):
+        """Parse given DBC data string and add the parsed data to the
+        database.
+
+        >>> db = cantools.database.Database()
+        >>> with open ('foo.dbc', 'r') as fin:
+        ...     db.merge_dbc_string(fin.read())
+
+        """
+
+        database = dbc.load_string(string, self._strict)
+
+        self._messages += database.messages
+        # self._nodes = database.nodes
+        self.merge_nodes(database.nodes)
+        
+        #self._buses = database.buses
+        self.merge_buses(database.buses)
+        
+        self._version = database.version
+        # self._dbc = database.dbc
+        self.merge_dbc_data(database.dbc)
+        
+        self.refresh()
+        
+    def merge_db(self, database):
+        """Merge a database object into the database.
+        
+        """
+        
+        self._messages += database.messages
+        # self._nodes = database.nodes
+        self.merge_nodes(database.nodes)
+        
+        #self._buses = database.buses
+        self.merge_buses(database.buses)
+        
+        self._version = database.version
+        
+        # self._dbc = database.dbc
+        self.merge_dbc_data(database.dbc)
+        
+        self.refresh()
+   
+    def merge_nodes(self, new_nodes, Overwrite=True):
+        """Merge a new node list into an existing node list.
+        This function checks for duplicate nodes. If a duplicate
+        exists and the new node has a comment but the current
+        node list does not, the new node comment is used. If
+        both have comments, the old node comment is prioritized.
+        """
+        for newNode in new_nodes:
+            if newNode.name in self._nodes:
+                # node currently exists, check comment
+                oldNode = self._nodes[self._nodes.index(newNode.name)]
+                if oldNode.comment == '':
+                    # if the old node list had no comment, pull in the new one
+                    oldNode.comment = newNode.comment
+                    LOGGER.warning("Node %s had no comment but exists in new database. "
+                                   "Using comment from new database: %s",
+                                   newNode.name, newNode.comment)
+            else:
+                # node does not exist in current list, add it
+                self._nodes.append(newNode)
+                LOGGER.warning("Node %s does not exist in current list, importing.", newNode.name)
+                
+    def merge_buses(self, new_buses, Overwrite=True):
+        """Merge a new bus list into an existing bus list.
+        This function checks for duplicate buss. If a duplicate
+        exists and the new bus has a comment but the current
+        bus list does not, the new bus comment is used. If
+        both have comments, the old bus comment is prioritized.
+        """
+        for newBus in new_buses:
+            if newBus.name in self._buses:
+                # bus currently exists, check comment
+                oldBus = self._buses[self._bus.index(newBus.name)]
+                if oldBus.comment == '':
+                    # if the old bus list had no comment, pull in the new one
+                    oldBus.comment = newBus.comment
+                    LOGGER.warning("Bus %s had no comment but exists in new database. "
+                                   "Using comment from new database: %s",
+                                   newBus.name, newBus.comment)
+            else:
+                # bus does not exist in current list, add it
+                self._buses.append(newBus)
+                LOGGER.warning("Bus %s does not exist in current list, importing.", newBus.name)
+                
+    def merge_dbc_data(self, new_dbc_data, Overwrite=True):
+        """Merge new dbc attribute data into existing dbc attribute data.
+        This function checks the existing dbc attribute data and merges any
+        new data in.
+        
+        * attribute definitions - OrderedDict
+        * attributes - OrderedDict
+        * environment variables - OrderedDict
+        * value tables - OrderedDict
+
+        Parameters
+        ----------
+        new_dbc_data : TYPE
+            DESCRIPTION.
+
+        Returns
+        -------
+        None.
+
+        """
+        for new_attribute_def in new_dbc_data.attribute_definitions:
+            if new_attribute_def in self._dbc.attribute_definitions:
+                # attribute def already exists in parent database, check for differences
+                if new_dbc_data.attribute_definitions[new_attribute_def].default_value != self._dbc.attribute_definitions[new_attribute_def].default_value:
+                    # attribute has a different default value, import the one from the new database
+                    self._dbc.attribute_definitions[new_attribute_def] = new_dbc_data.attribute_definitions[new_attribute_def]
+                    
+                    LOGGER.warning("Attribute Definition %s exists in both databases but has different default values. "
+                                   "Old default: %s. New default: %s. Using new default value.",
+                                   new_attribute_def, self._dbc.attribute_definitions[new_attribute_def].default_value,
+                                   new_dbc_data.attribute_definitions[new_attribute_def].default_value)
+            else:
+                self._dbc.attribute_definitions[new_attribute_def] = new_dbc_data.attribute_definitions[new_attribute_def]
+                
+                
+        for new_attribute in new_dbc_data.attributes:
+            if new_attribute in self._dbc.attributes:
+                # attribute already exists in parent database, check for differences
+                if new_dbc_data.attributes[new_attribute].value != self._dbc.attributes[new_attribute].value:
+                    # attribute has a different default value, import the one from the new database
+                    self._dbc.attributes[new_attribute] = new_dbc_data.attributes[new_attribute]
+                    
+                    LOGGER.warning("Attribute %s exists in both databases but has different default values."
+                                   "Old default: %s. New default: %s. Using new default value.",
+                                   new_attribute, self._dbc.attributes[new_attribute].value,
+                                   new_dbc_data.attributes[new_attribute].value)
+            else:
+                self._dbc.attributes[new_attribute] = new_dbc_data.attributes[new_attribute]
+                
+        for new_env_var in new_dbc_data.environment_variables:
+            if new_env_var in self._dbc.environment_variables:
+                # environment variables already exists in parent database, check for differences
+                if new_dbc_data.environment_variables[new_env_var].value != self._dbc.environment_variables[new_env_var].value:
+                    # environment variable has a different default value, import the one from the new database
+                    self._dbc.environment_variables[new_env_var] = new_dbc_data.environment_variables[new_env_var]
+                    
+                    LOGGER.warning("Environment Variable %s exists in both databases but has different default values."
+                                   "Old default: %s. New default: %s. Using new default value.",
+                                   new_env_var, self._dbc.environment_variables[new_env_var].value,
+                                   new_dbc_data.environment_variables[new_env_var].value)
+            else:
+                self._dbc.environment_variables[new_env_var] = new_dbc_data.environment_variables[new_env_var]
