@@ -1,0 +1,142 @@
+VERSION ""
+
+
+NS_ :
+
+BS_:
+
+BU_: Vector__XXX
+
+BO_ 201 VCU_0C9h: 8 Vector__XXX
+SG_ VCU_EPPCmd : 49|2@0+ (1,0) [0|1] "" Vector__XXX
+SG_ MessageCounter_0C9h : 27|4@0+ (1,0) [0|15] "" Vector__XXX
+SG_ CheckSum_0C9h : 63|8@0+ (1,0) [0|255] "" Vector__XXX
+
+
+BO_ 572 GW_ESC_23Ch: 8 Vector__XXX
+SG_ VehicleSpeedStatus : 7|1@0+ (1,0) [0|1] "" Vector__XXX
+SG_ VehicleSpeed : 6|15@0+ (0.015625,0) [0|511.984375] "km / h" Vector__XXX
+SG_ MessageCounter_23Ch : 55|4@0+ (1,0) [0|15] "" Vector__XXX
+SG_ CheckSum_23Ch : 63|8@0+ (1,0) [0|255] "" Vector__XXX
+
+
+BO_ 2037 EPP_7F5h: 8 Vector__XXX
+SG_ EPPDTCSeriousLevel : 3|4@0+ (1,0) [0|15] "" Vector__XXX
+SG_ EPPDTCHighByte : 15|8@0+ (1,0) [0|255] "" Vector__XXX
+SG_ EPPDTCLowByte : 23|8@0+ (1,0) [0|255] "" Vector__XXX
+SG_ EPPDTCFailureTypeByte : 31|8@0+ (1,0) [0|255] "" Vector__XXX
+SG_ EPPDTCStatus : 39|8@0+ (1,0) [0|255] "" Vector__XXX
+SG_ EPPDTCType : 47|8@0+ (1,0) [0|255] "" Vector__XXX
+
+
+BO_ 755 EPP_2F3h: 8 Vector__XXX
+SG_ EPP_TransGearPos : 2|3@0+ (1,0) [0|7] "" Vector__XXX
+SG_ EPP_LampRequest : 3|1@0+ (1,0) [0|1] "" Vector__XXX
+SG_ EPP_FaultLevel : 7|4@0+ (1,0) [0|15] "" Vector__XXX
+SG_ EPP_CANFault : 40|1@0+ (1,0) [0|1] "" Vector__XXX
+SG_ EPP_PstSnsFault : 41|1@0+ (1,0) [0|1] "" Vector__XXX
+SG_ EPP_ActuatorMotorFault : 42|1@0+ (1,0) [0|1] "" Vector__XXX
+SG_ EPP_ActuatorSt : 45|3@0+ (1,0) [0|7] "" Vector__XXX
+SG_ EPP_MotorCur : 15|16@0+ (0.0030517578125,-100) [-100|99.9969482421875] "A" Vector__XXX
+SG_ EPP_ShaftAngle : 31|16@0+ (0.0030517578125,-100) [-100|99.9969482421875] "Deg" Vector__XXX
+SG_ MessageCounter_2F3h : 55|4@0+ (1,0) [0|15] "" Vector__XXX
+SG_ CheckSum_2F3h : 63|8@0+ (1,0) [0|255] "" Vector__XXX
+
+
+BO_ 759 EPP_2F7h: 8 Vector__XXX
+SG_ EPP_ShaftSpd : 7|16@0+ (0.0030517578125,-100) [-100|99.9969482421875] "rpm" Vector__XXX
+SG_ EPP_FaultCode : 23|16@0+ (1,0) [0|4095] "" Vector__XXX
+SG_ EPP_Voltage : 55|12@0+ (0.0103759765625,0) [0|42.4896] "V" Vector__XXX
+SG_ EPP_Temprature : 39|16@0+ (0.0030517578125,-45) [-45|154.9969] "℃" Vector__XXX
+SG_ EPP_WorkMode : 59|4@0+ (1,0) [0|15] "" Vector__XXX
+
+
+CM_ SG_ 201 VCU_EPPCmd "VCU request EPP ";
+CM_ SG_ 201 MessageCounter_0C9h " ";
+CM_ SG_ 201 CheckSum_0C9h "CheckSum=Byet(0) XOR Byte(1) XOR Byte(2) XOR Byte(3) XOR Byte(4) XOR Byte(5) XOR Byte(6) ";
+CM_ SG_ 572 VehicleSpeedStatus " ";
+CM_ SG_ 572 VehicleSpeed " ";
+CM_ SG_ 572 MessageCounter_23Ch "  ";
+CM_ SG_ 572 CheckSum_23Ch "Checksum=byte(0) XOR byte(1) XOR byte(2) XOR byte(3) XOR byte(4) XOR byte(5) XOR byte(6)  ";
+CM_ SG_ 2037 EPPDTCSeriousLevel "  ";
+CM_ SG_ 2037 EPPDTCHighByte "  ";
+CM_ SG_ 2037 EPPDTCLowByte "  ";
+CM_ SG_ 2037 EPPDTCFailureTypeByte "  ";
+CM_ SG_ 2037 EPPDTCStatus "  ";
+CM_ SG_ 2037 EPPDTCType "  ";
+CM_ SG_ 755 EPP_TransGearPos "Indicating the transmission gear position ";
+CM_ SG_ 755 EPP_LampRequest "Active in case of E_Park system fault occurred, reuqest for light up the diagnostic lamp on ICM.(Optional) ";
+CM_ SG_ 755 EPP_FaultLevel "EPP Fault level ";
+CM_ SG_ 755 EPP_CANFault "CAN receive detection only for the Message which transfer main request ";
+CM_ SG_ 755 EPP_PstSnsFault "Sensor fault or unpluged ";
+CM_ SG_ 755 EPP_ActuatorMotorFault "Motor fault or unpluged ";
+CM_ SG_ 755 EPP_ActuatorSt "System status ";
+CM_ SG_ 755 EPP_MotorCur "EPP motor current ";
+CM_ SG_ 755 EPP_ShaftAngle "EPP output shaft angle ";
+CM_ SG_ 755 MessageCounter_2F3h "  ";
+CM_ SG_ 755 CheckSum_2F3h "Checksum=byte(0) XOR byte(1) XOR byte(2) XOR byte(3) XOR byte(4) XOR byte(5) XOR byte(6)  ";
+CM_ BO_ 759 "仅PP前使用";
+CM_ SG_ 759 EPP_ShaftSpd " ";
+CM_ SG_ 759 EPP_FaultCode " ";
+CM_ SG_ 759 EPP_Voltage " ";
+CM_ SG_ 759 EPP_Temprature " ";
+CM_ SG_ 759 EPP_WorkMode " ";
+
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT -3.4E+038 3.4E+038;
+
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+
+BA_ "BusType" "CAN";
+
+BA_ "GenMsgCycleTime" BO_ 201 10;
+BA_ "GenMsgCycleTime" BO_ 572 20;
+BA_ "GenMsgCycleTime" BO_ 755 20;
+BA_ "GenMsgCycleTime" BO_ 759 20;
+
+BA_ "GenSigStartValue" SG_ 201 VCU_EPPCmd 0;
+BA_ "GenSigStartValue" SG_ 201 MessageCounter_0C9h 0;
+BA_ "GenSigStartValue" SG_ 201 CheckSum_0C9h 0;
+BA_ "GenSigStartValue" SG_ 572 VehicleSpeedStatus 0;
+BA_ "GenSigStartValue" SG_ 572 VehicleSpeed 0;
+BA_ "GenSigStartValue" SG_ 572 MessageCounter_23Ch 0;
+BA_ "GenSigStartValue" SG_ 572 CheckSum_23Ch 0;
+BA_ "GenSigStartValue" SG_ 2037 EPPDTCSeriousLevel 0;
+BA_ "GenSigStartValue" SG_ 2037 EPPDTCHighByte 0;
+BA_ "GenSigStartValue" SG_ 2037 EPPDTCLowByte 0;
+BA_ "GenSigStartValue" SG_ 2037 EPPDTCFailureTypeByte 0;
+BA_ "GenSigStartValue" SG_ 2037 EPPDTCStatus 0;
+BA_ "GenSigStartValue" SG_ 2037 EPPDTCType 0;
+BA_ "GenSigStartValue" SG_ 755 EPP_TransGearPos 0;
+BA_ "GenSigStartValue" SG_ 755 EPP_LampRequest 0;
+BA_ "GenSigStartValue" SG_ 755 EPP_FaultLevel 0;
+BA_ "GenSigStartValue" SG_ 755 EPP_CANFault 0;
+BA_ "GenSigStartValue" SG_ 755 EPP_PstSnsFault 0;
+BA_ "GenSigStartValue" SG_ 755 EPP_ActuatorMotorFault 0;
+BA_ "GenSigStartValue" SG_ 755 EPP_ActuatorSt 0;
+BA_ "GenSigStartValue" SG_ 755 EPP_MotorCur 0;
+BA_ "GenSigStartValue" SG_ 755 EPP_ShaftAngle 0;
+BA_ "GenSigStartValue" SG_ 755 MessageCounter_2F3h 0;
+BA_ "GenSigStartValue" SG_ 755 CheckSum_2F3h 0;
+BA_ "GenSigStartValue" SG_ 759 EPP_ShaftSpd 0;
+BA_ "GenSigStartValue" SG_ 759 EPP_FaultCode 0;
+BA_ "GenSigStartValue" SG_ 759 EPP_Voltage 0;
+BA_ "GenSigStartValue" SG_ 759 EPP_Temprature 0;
+BA_ "GenSigStartValue" SG_ 759 EPP_WorkMode 0;
+
+VAL_ 201 VCU_EPPCmd 0 "Disable(VCU不使能EPP)" 1 "Lock(VCU发驻车指令)" 2 "Unlock(VCU发解锁指令)" 3 "Shut Down(VCU发休眠令)" ;
+VAL_ 572 VehicleSpeedStatus 1 "Invalid" 0 "Valid" ;
+VAL_ 2037 EPPDTCSeriousLevel 15 "Reserved" 14 "Reserved" 13 "Reserved" 12 "Reserved" 11 "Reserved" 10 "Reserved" 9 "Reserved" 8 "Reserved" 7 "Reserved" 6 "Reserved" 5 "Reserved" 4 "Level Ⅳ" 3 "Level Ⅲ" 2 "Level Ⅱ" 1 "Level Ⅰ" 0 "Not Used" ;
+VAL_ 2037 EPPDTCType 7 "Reserved" 6 "Type F" 5 "Type E" 4 "Type D" 3 "Type C" 2 "Type B" 1 "Type A" 0 "Not Used" ;
+VAL_ 755 EPP_TransGearPos 0 "Not initialized" 1 "Unknown（角度传感器有故障）" 2 "Park" 3 "Park stall" 4 "Between Park and UnPark" 5 "UnPark" 6 "UnPark stall" 7 "Reserved" ;
+VAL_ 755 EPP_LampRequest 1 "Request" 0 "No Request" ;
+VAL_ 755 EPP_FaultLevel 0 "no fault" 1 "Failure level 1" 2 "Failure level 2" 3 "3-15Reserved" ;
+VAL_ 755 EPP_CANFault 0 "No Fault" 1 "Fault" ;
+VAL_ 755 EPP_PstSnsFault 0 "No Fault" 1 "Fault" ;
+VAL_ 755 EPP_ActuatorMotorFault 0 "No Fault" 1 "Fault" ;
+VAL_ 755 EPP_ActuatorSt 0 "Inital" 1 "Reserved" 2 "Locked" 3 "Reserved" 4 "Reserved" 5 "Unlocked" 6 "Reserved" 7 "Unknown" ;
+VAL_ 759 EPP_WorkMode 0 "Idle H桥不使能" 1 "Standby H桥处于刹车模式" 2 "Duty TPL为占空比控制模式" 3 "Current TPL为电流控制模式" 4 "SpeedTPL为转速控制模式" 5 "Position TPL为位置控制模式" 6 "SelfLearn TPL为自学习模式" ;
+

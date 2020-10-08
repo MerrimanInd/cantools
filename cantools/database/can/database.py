@@ -560,6 +560,8 @@ class Database(object):
         None.
 
         """
+  
+
         for new_attribute_def in new_dbc_data.attribute_definitions:
             if new_attribute_def in self._dbc.attribute_definitions:
                 # attribute def already exists in parent database, check for differences
@@ -572,9 +574,10 @@ class Database(object):
                                    new_attribute_def, self._dbc.attribute_definitions[new_attribute_def].default_value,
                                    new_dbc_data.attribute_definitions[new_attribute_def].default_value)
             else:
+                # attribute definition doesn't exist, import it
                 self._dbc.attribute_definitions[new_attribute_def] = new_dbc_data.attribute_definitions[new_attribute_def]
                 
-                
+
         for new_attribute in new_dbc_data.attributes:
             if new_attribute in self._dbc.attributes:
                 # attribute already exists in parent database, check for differences
@@ -587,8 +590,10 @@ class Database(object):
                                    new_attribute, self._dbc.attributes[new_attribute].value,
                                    new_dbc_data.attributes[new_attribute].value)
             else:
+                # attribute doesn't exist, import it
                 self._dbc.attributes[new_attribute] = new_dbc_data.attributes[new_attribute]
-                
+                    
+                    
         for new_env_var in new_dbc_data.environment_variables:
             if new_env_var in self._dbc.environment_variables:
                 # environment variables already exists in parent database, check for differences
@@ -601,4 +606,20 @@ class Database(object):
                                    new_env_var, self._dbc.environment_variables[new_env_var].value,
                                    new_dbc_data.environment_variables[new_env_var].value)
             else:
+                # environment variable doesn't exist, import it
                 self._dbc.environment_variables[new_env_var] = new_dbc_data.environment_variables[new_env_var]
+                
+        for new_val_tab in new_dbc_data.value_tables:
+            if new_val_tab in self._dbc.value_tables:
+                # value table already exists in parent database, check for differences
+                if new_dbc_data.value_tables[new_val_tab].value != self._dbc.value_tables[new_val_tab].value:
+                    # value table has a different default value, import the one from the new database
+                    self._dbc.value_tables[new_val_tab] = new_dbc_data.value_tables[new_val_tab]
+                    
+                    LOGGER.warning("Value Table %s exists in both databases but has different default values."
+                                   "Old default: %s. New default: %s. Using new default value.",
+                                   new_val_tab, self._dbc.value_tables[new_val_tab].value,
+                                   new_dbc_data.value_tables[new_val_tab].value)
+            else:
+                # environment variable doesn't exist, import it
+                self._dbc.value_tables[new_val_tab] = new_dbc_data.value_tables[new_val_tab]

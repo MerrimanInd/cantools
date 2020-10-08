@@ -1,0 +1,660 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: RMS_PM_Controller PRNDL VCU VCU GCMR GCMF BCU
+VAL_TABLE_ IlluminationStatus 1 "Illuminated" 0 "Not Illuminated" ;
+VAL_TABLE_ ShiftPositions 6 "HighLow" 5 "P" 4 "R2" 3 "R1" 2 "L1" 1 "L2" 0 "Invalid" ;
+VAL_TABLE_ FMI 31 "Condition Exists" 22 "Data Drifted Low" 21 "Data Drifted High" 20 "Received Network Data In Error" 19 "Received network data in error" 18 "Below normal (moderately severe)" 17 "Below normal (least severe)" 16 "Above normal (moderately severe)" 15 "Above normal (least severe)" 14 "Special intstructions" 13 "Out of calibration" 12 "Bad intelligent device" 11 "Root cause not known" 10 "Abnormal rate of change" 9 "Abnormal update rate" 8 "Abnormal frequency" 7 "Mechanical system not responding" 6 "Current above normal" 5 "Current below normal" 4 "Voltage below normal" 3 "Voltage above normal" 2 "Data erratic" 1 "Below normal (most severe)" 0 "Above normal (most severe)" ;
+VAL_TABLE_ Ports 21 "Global (All ports)" 0 "Local" ;
+
+
+BO_ 173 M173_Modulation_And_Flux_Info: 8 RMS_PM_Controller
+ SG_ D4_Iq_Command : 48|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ D3_Id_Command : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ D2_Flux_Weakening_Output : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ D1_Modulation_Index : 0|16@1- (0.0001,0) [-3.2768|3.2767] "" Vector__XXX
+
+BO_ 172 M172_Torque_And_Timer_Info: 8 RMS_PM_Controller
+ SG_ D3_Power_On_Timer : 32|32@1+ (0.003,0) [0|12884800.0] "Sec" Vector__XXX
+ SG_ D2_Torque_Feedback : 16|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+ SG_ D1_Commanded_Torque : 0|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+
+BO_ 194 M194_Read_Write_Param_Response: 8 RMS_PM_Controller
+ SG_ D3_Data_Response : 32|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ D2_Write_Success : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D1_Parameter_Address_Response : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 193 M193_Read_Write_Param_Command: 8 Vector__XXX
+ SG_ D3_Data_Command : 32|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ D2_Read_Write_Command : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D1_Parameter_Address_Command : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 192 M192_Command_Message: 8 Vector__XXX
+ SG_ Torque_Limit_Command : 48|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+ SG_ Speed_Mode_Enable : 42|1@1+ (1,0) [0|1] "Bit" Vector__XXX
+ SG_ Inverter_Discharge : 41|1@1+ (1,0) [0|1] "Bit" Vector__XXX
+ SG_ Inverter_Enable : 40|1@1+ (1,0) [0|1] "Bit" Vector__XXX
+ SG_ Direction_Command : 32|1@1+ (1,0) [0|1] "Bit" Vector__XXX
+ SG_ Speed_Command : 16|16@1- (1,0) [-32768|32767] "rpm" Vector__XXX
+ SG_ Torque_Command : 0|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+
+BO_ 171 M171_Fault_Codes: 8 RMS_PM_Controller
+ SG_ D4_Run_Fault_Hi : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ D3_Run_Fault_Lo : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ D2_Post_Fault_Hi : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ D1_Post_Fault_Lo : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 170 M170_Internal_States: 8 RMS_PM_Controller
+ SG_ D7_BMS_Torque_Limiting : 58|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ D7_BMS_Active : 57|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D7_Direction_Command : 56|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D6_Inverter_Enable_Lockout : 55|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D6_Inverter_Enable_State : 48|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D5_Inverter_Command_Mode : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D4_Inverter_Discharge_State : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ D4_Inverter_Run_Mode : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D3_Relay_6_Status : 29|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D3_Relay_5_Status : 28|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D3_Relay_4_Status : 27|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D3_Relay_3_Status : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D3_Relay_2_Status : 25|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D3_Relay_1_Status : 24|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D2_Inverter_State : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ D1_VSM_State : 0|16@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 169 M169_Internal_Voltages: 8 RMS_PM_Controller
+ SG_ D4_Reference_Voltage_12_0 : 48|16@1- (0.01,0) [-327.68|327.67] "V" Vector__XXX
+ SG_ D3_Reference_Voltage_5_0 : 32|16@1- (0.01,0) [-327.68|327.67] "V" Vector__XXX
+ SG_ D2_Reference_Voltage_2_5 : 16|16@1- (0.01,0) [-327.68|327.67] "V" Vector__XXX
+ SG_ D1_Reference_Voltage_1_5 : 0|16@1- (0.01,0) [-327.68|327.67] "V" Vector__XXX
+
+BO_ 168 M168_Flux_ID_IQ_Info: 8 RMS_PM_Controller
+ SG_ D4_Iq : 48|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ D3_Id : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ D2_Flux_Feedback : 16|16@1- (0.001,0) [-32.768|32.767] "Wb" Vector__XXX
+ SG_ D1_Flux_Command : 0|16@1- (0.001,0) [-32.768|32.767] "Wb" Vector__XXX
+
+BO_ 167 M167_Voltage_Info: 8 RMS_PM_Controller
+ SG_ D4_VBC_Vq_Voltage : 48|16@1- (0.1,0) [-3276.8|3276.7] "V" Vector__XXX
+ SG_ D3_VAB_Vd_Voltage : 32|16@1- (0.1,0) [-3276.8|3276.7] "V" Vector__XXX
+ SG_ D2_Output_Voltage : 16|16@1- (0.1,0) [-3276.8|3276.7] "V" Vector__XXX
+ SG_ D1_DC_Bus_Voltage : 0|16@1- (0.1,0) [-3276.8|3276.7] "V" Vector__XXX
+
+BO_ 166 M166_Current_Info: 8 RMS_PM_Controller
+ SG_ D4_DC_Bus_Current : 48|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ D3_Phase_C_Current : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ D2_Phase_B_Current : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ D1_Phase_A_Current : 0|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+
+BO_ 165 M165_Motor_Position_Info: 8 RMS_PM_Controller
+ SG_ D4_Delta_Resolver_Filtered : 48|16@1- (0.1,0) [-3276.8|3276.7] "deg" Vector__XXX
+ SG_ D3_Electrical_Output_Frequency : 32|16@1- (0.1,0) [-3276.8|3276.7] "hz" Vector__XXX
+ SG_ D2_Motor_Speed : 16|16@1- (1,0) [-32768|32767] "rpm" Vector__XXX
+ SG_ D1_Motor_Angle_Electrical : 0|16@1+ (0.1,0) [0|6553.5] "deg" Vector__XXX
+
+BO_ 164 M164_Digital_Input_Status: 8 RMS_PM_Controller
+ SG_ D8_Digital_Input_8 : 56|1@1+ (1,0) [0|1] "boolean" Vector__XXX
+ SG_ D7_Digital_Input_7 : 48|1@1+ (1,0) [0|1] "boolean" Vector__XXX
+ SG_ D6_Digital_Input_6 : 40|1@1+ (1,0) [0|1] "boolean" Vector__XXX
+ SG_ D5_Digital_Input_5 : 32|1@1+ (1,0) [0|1] "boolean" Vector__XXX
+ SG_ D4_Digital_Input_4 : 24|1@1+ (1,0) [0|1] "boolean" Vector__XXX
+ SG_ D3_Digital_Input_3 : 16|1@1+ (1,0) [0|1] "boolean" Vector__XXX
+ SG_ D2_Digital_Input_2 : 8|1@1+ (1,0) [0|1] "boolean" Vector__XXX
+ SG_ D1_Digital_Input_1 : 0|1@1+ (1,0) [0|1] "boolean" Vector__XXX
+
+BO_ 163 M163_Analog_Input_Voltages: 8 RMS_PM_Controller
+ SG_ D6_Analog_Input_6 : 52|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+ SG_ D5_Analog_Input_5 : 42|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+ SG_ D4_Analog_Input_4 : 32|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+ SG_ D3_Analog_Input_3 : 20|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+ SG_ D2_Analog_Input_2 : 10|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+ SG_ D1_Analog_Input_1 : 0|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+
+BO_ 162 M162_Temperature_Set_3: 8 RMS_PM_Controller
+ SG_ D4_Torque_Shudder : 48|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+ SG_ D3_Motor_Temperature : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D2_RTD5_Temperature : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D1_RTD4_Temperature : 0|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+
+BO_ 161 M161_Temperature_Set_2: 8 RMS_PM_Controller
+ SG_ D4_RTD3_Temperature : 48|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D3_RTD2_Temperature : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D2_RTD1_Temperature : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D1_Control_Board_Temperature : 0|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+
+BO_ 160 M160_Temperature_Set_1: 8 RMS_PM_Controller
+ SG_ D4_Gate_Driver_Board : 48|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D3_Module_C : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D2_Module_B : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ D1_Module_A : 0|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+
+BO_ 174 M174_Firmware_Info: 8 RMS_PM_Controller
+ SG_ D4_DateCode_YYYY : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ D3_DateCode_MMDD : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ D2_SW_Version : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ D1_Project_Code_EEP_Ver : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 175 M175_Diag_Data: 8 RMS_PM_Controller
+ SG_ D5_Diag_Data_3 : 48|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ D4_Diag_Data_2 : 32|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ D3_Diag_Data_1 : 16|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ D2_Buffer_Segment : 8|8@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ D1_Buffer_Record : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 471 M187_U2C_Command_Txd: 8 RMS_PM_Controller
+ SG_ D2_Setpoint_Calc : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ D1_ID_Byte : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 469 M188_U2C_Message_Rxd: 8 Vector__XXX
+ SG_ D8_14V_Current_Monitor : 48|7@1+ (1,0) [0|127] "" Vector__XXX
+ SG_ D7_14V_Conditional : 39|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D6_14V_Monitor : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ D5_DTC_Index : 19|5@1+ (1,0) [0|31] "" Vector__XXX
+ SG_ D4_DTC_Status : 16|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ D3_HV_Input_Current : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ D2_14V_Master_Fault : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ D1_HV_Input_Current_Sensor_Valid : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 514 BMS_Current_Limit: 8 Vector__XXX
+ SG_ D2_Max_Charge_Current : 16|16@1+ (1,0) [0|1000] "A" Vector__XXX
+ SG_ D1_Max_Discharge_Current : 0|16@1+ (1,0) [0|1000] "A" Vector__XXX
+
+BO_ 208 ShiftSelectRespond: 8 Vector__XXX
+ SG_ ParkLightIlluminate : 16|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ShiftHistory2 : 11|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ShiftHistory1 : 8|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ShiftChange0 : 3|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ShiftChangeCount : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+
+BO_ 209 ShiftSelectPosition: 8 Vector__XXX
+ SG_ ShiftChecksum : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ShiftRollingCounter : 48|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ ShifterFailure : 17|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ParkLightStatus : 16|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ShiftHistory2 : 11|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ShiftHistory1 : 8|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ShiftChange0 : 3|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ShiftChangeCount : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+
+BO_ 2348941089 TC1: 8 BCU
+ SG_ TransMode8 : 62|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode7 : 60|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode6 : 58|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode5 : 56|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TrnsShftSlectorDisplayModeSwitch : 54|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransRequestedLaunchGear : 50|4@1+ (1,0) [0|15] ""  VCU,GCMR,GCMF
+ SG_ AutoNeutralReq : 48|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode4 : 46|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode3 : 44|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode2 : 42|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransMode1 : 40|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransLoadReductionInhibitRq : 38|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqCentralRear : 36|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqCentralFront : 34|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqCentral : 32|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqRearAxle2 : 30|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqRearAxle1 : 28|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqFrontAxle2 : 26|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDiffLockRqFrontAxle1 : 24|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransRequestedGear : 16|8@1+ (1,-125) [-64|64] ""  VCU,GCMR,GCMF
+ SG_ RequestedPercentClutchSlip : 8|8@1+ (0.4,0) [0|100] "%"  VCU,GCMR,GCMF
+ SG_ TransReverseGearShiftInhibitRq : 6|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ DisengageDrivelineRq : 4|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TrnsTrqeConverterLockupDisableRq : 2|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+ SG_ TransGearShiftInhibitRq : 0|2@1+ (1,0) [0|3] ""  VCU,GCMR,GCMF
+
+
+
+
+CM_ SG_ 173 D4_Iq_Command "The commanded Q-axis current";
+CM_ SG_ 173 D3_Id_Command "The commanded D-axis current";
+CM_ SG_ 173 D2_Flux_Weakening_Output "This is the current output of the flux regulator.";
+CM_ SG_ 173 D1_Modulation_Index "This is the modulation index. The scale factor is x100. To get the actual modulation index divide the value by 100.";
+CM_ SG_ 172 D3_Power_On_Timer "Updated every 3 msec. This will roll over in approximately 150 days!";
+CM_ SG_ 172 D2_Torque_Feedback "Estimated motor torque feedback";
+CM_ SG_ 172 D1_Commanded_Torque "The commanded Torque";
+CM_ BO_ 194 "To write a parameter use message 0x0C1 with byte #2 set to 1 (write). 
+To read a parameter use message 0x0C1 with byte #2 to set 0 (read). ";
+CM_ SG_ 194 D3_Data_Response "All EEPROM data is 16 bits and is contained in bytes 4 and 5. Bytes 6 and 7 should be ignored.";
+CM_ SG_ 194 D2_Write_Success "0=Write failure, 1=Success";
+CM_ SG_ 194 D1_Parameter_Address_Response "Valid EEPROM Parameter CAN addresses are between 100 and 499.";
+CM_ BO_ 193 "To write a parameter use message 0x0C1 with byte #2 set to 1 (write). 
+To read a parameter use message 0x0C1 with byte #2 to set 0 (read). ";
+CM_ SG_ 193 D3_Data_Command "All EEPROM data is 16 bits and is contained in bytes 4 and 5.";
+CM_ SG_ 193 D2_Read_Write_Command "0=Read, 1=Write";
+CM_ SG_ 193 D1_Parameter_Address_Command "Valid EEPROM Parameter CAN addresses are between 100 and 499.";
+CM_ BO_ 192 "The command message is used to transmit data to the controller. This message is sent from a user supplied external controller to the PMxxx controller.";
+CM_ SG_ 192 Torque_Limit_Command "Torque Limit, set to 0 to keep default";
+CM_ SG_ 192 Speed_Mode_Enable "0 = No change to mode, 1 = change to speed mode from torque mode";
+CM_ SG_ 192 Inverter_Discharge "0=Discharge Disable,
+=Discharge Enable";
+CM_ SG_ 192 Inverter_Enable "0=Inverter OFF, 1 = Inverter ON";
+CM_ SG_ 192 Direction_Command "0=CW, 1=CCW as veiwed from the shaft end of the motor";
+CM_ SG_ 192 Speed_Command "Speed commandused when in speed mode";
+CM_ SG_ 192 Torque_Command "Torque command when in torque mode";
+CM_ SG_ 171 D4_Run_Fault_Hi "Each bit represents a fault. Please refer to PM100 Users Manual for details.";
+CM_ SG_ 171 D3_Run_Fault_Lo "Each bit represents a fault. Please refer to PM100 Users Manual for details.";
+CM_ SG_ 171 D2_Post_Fault_Hi "Each bit represents a fault. Please refer to PM100 Users Manual for details.";
+CM_ SG_ 171 D1_Post_Fault_Lo "Each bit represents a fault. Please refer to PM100 Users Manual for details.";
+CM_ SG_ 170 D7_BMS_Torque_Limiting "0 = Not Limiting, 1 = Limiting";
+CM_ SG_ 170 D7_BMS_Active "0 = BMS Not Active, 1 = BMS Active";
+CM_ SG_ 170 D7_Direction_Command "1 = Forward
+0 = 'Reverse' if inverter enabled  & 'Stopped' if inverter is disabled";
+CM_ SG_ 170 D6_Inverter_Enable_Lockout "0=Lockout Disabled, 1=Lockout Enabled";
+CM_ SG_ 170 D6_Inverter_Enable_State "0=Inverter Disabled, 
+1=Inverter Enabled";
+CM_ SG_ 170 D5_Inverter_Command_Mode "0=CAN mode, 1=VSM mode";
+CM_ SG_ 170 D4_Inverter_Discharge_State "0 = Disabled, 1 = Enabled, 2 = Speed Check, 3 = Active, 4 = Complete";
+CM_ SG_ 170 D4_Inverter_Run_Mode "0=Torque Mode, 1=Speed Mode";
+CM_ SG_ 170 D3_Relay_6_Status "0=OFF, 1=ON";
+CM_ SG_ 170 D3_Relay_5_Status "0=OFF, 1=ON";
+CM_ SG_ 170 D3_Relay_4_Status "0=OFF, 1=ON";
+CM_ SG_ 170 D3_Relay_3_Status "0=OFF, 1=ON";
+CM_ SG_ 170 D3_Relay_2_Status "0=OFF, 1=ON";
+CM_ SG_ 170 D3_Relay_1_Status "0=OFF, 1=ON";
+CM_ SG_ 170 D2_Inverter_State "Different states for the inverter state machine";
+CM_ SG_ 170 D1_VSM_State "Different states for the vehicle state machine";
+CM_ SG_ 169 D4_Reference_Voltage_12_0 "12V Input Voltage";
+CM_ SG_ 169 D3_Reference_Voltage_5_0 "Transducer voltage";
+CM_ SG_ 169 D2_Reference_Voltage_2_5 "Internal reference voltage";
+CM_ SG_ 169 D1_Reference_Voltage_1_5 "Internal reference voltage";
+CM_ SG_ 168 D4_Iq "The measured Iq current";
+CM_ SG_ 168 D3_Id "The measured Id current";
+CM_ SG_ 168 D2_Flux_Feedback "The estimated flux";
+CM_ SG_ 168 D1_Flux_Command "The commanded flux";
+CM_ SG_ 167 D4_VBC_Vq_Voltage "Measured value of the voltage between Phase B and Phase C";
+CM_ SG_ 167 D3_VAB_Vd_Voltage "Measured value of the voltage betwen phase A and Phase B";
+CM_ SG_ 167 D2_Output_Voltage "The calculated value of the output voltage, in peak line-neutral volts";
+CM_ SG_ 167 D1_DC_Bus_Voltage "The actual measured value of the DC bus voltage";
+CM_ SG_ 166 D4_DC_Bus_Current "The Calculated DC Bus Current";
+CM_ SG_ 166 D3_Phase_C_Current "The measured value of Phase C current";
+CM_ SG_ 166 D2_Phase_B_Current "The measured value of Phase B current";
+CM_ SG_ 166 D1_Phase_A_Current "The measured value of Phase A current";
+CM_ SG_ 165 D4_Delta_Resolver_Filtered "Used in calibration of resolver angle adjustment.";
+CM_ SG_ 165 D3_Electrical_Output_Frequency "The actual electrical frequency of the inverter";
+CM_ SG_ 165 D2_Motor_Speed "The measured speed of the motor";
+CM_ SG_ 165 D1_Motor_Angle_Electrical "The Electrical Angle of the motor as read by the encoder or resolver";
+CM_ SG_ 164 D8_Digital_Input_8 "Status of Digital Input #8";
+CM_ SG_ 164 D7_Digital_Input_7 "Status of Digital Input #7";
+CM_ SG_ 164 D6_Digital_Input_6 "Status of Digital Input #6";
+CM_ SG_ 164 D5_Digital_Input_5 "Status of Digital Input #5";
+CM_ SG_ 164 D4_Digital_Input_4 "Status of Digital Input #4";
+CM_ SG_ 164 D3_Digital_Input_3 "Status of Digital Input #3";
+CM_ SG_ 164 D2_Digital_Input_2 "Status of Digital Input #2";
+CM_ SG_ 164 D1_Digital_Input_1 "Status of Digital Input #1";
+CM_ BO_ 163 "";
+CM_ SG_ 163 D6_Analog_Input_6 "Voltage on Analog Input #6";
+CM_ SG_ 163 D5_Analog_Input_5 "Voltage on Analog Input #5";
+CM_ SG_ 163 D4_Analog_Input_4 "Voltage on Analog Input #4";
+CM_ SG_ 163 D3_Analog_Input_3 "Voltage on Analog Input #3";
+CM_ SG_ 163 D2_Analog_Input_2 "Voltage on Analog Input #2";
+CM_ SG_ 163 D1_Analog_Input_1 "Voltage on Analog Input #1";
+CM_ SG_ 162 D4_Torque_Shudder "Shudder compensation value of torque";
+CM_ SG_ 162 D3_Motor_Temperature "Motor Temperature Sensor";
+CM_ SG_ 162 D2_RTD5_Temperature "RTD 5 (PT1000) Temperature";
+CM_ SG_ 162 D1_RTD4_Temperature "RTD 4 (PT1000) Temperature";
+CM_ SG_ 161 D4_RTD3_Temperature "RTD input 3 (PT1000) Temperature";
+CM_ SG_ 161 D3_RTD2_Temperature "RTD input 2 (PT1000) Temperature";
+CM_ SG_ 161 D2_RTD1_Temperature "RTD input 1 (PT1000) Temperature";
+CM_ SG_ 161 D1_Control_Board_Temperature "Control Board Temperature";
+CM_ SG_ 160 D4_Gate_Driver_Board "Gate Driver Board Temperature";
+CM_ SG_ 160 D3_Module_C "IGBT Module C Temperature";
+CM_ SG_ 160 D2_Module_B "IGBT Module B Temperature";
+CM_ SG_ 160 D1_Module_A "IGBT Module A Temperature";
+CM_ BO_ 514 "Sent by BMS";
+CM_ SG_ 514 D2_Max_Charge_Current "Maximum charge current from BMS";
+CM_ SG_ 514 D1_Max_Discharge_Current "Maximum discharge current from BMS";
+CM_ SG_ 208 ParkLightIlluminate "Status of Park Light illumination state";
+CM_ SG_ 208 ShiftHistory2 "Third most recent input request by driver. This should be the last value of Change0 when a new input is made.";
+CM_ SG_ 208 ShiftHistory1 "Second most recent input request by driver. This should be the last value of Change0 when a new input is made.";
+CM_ SG_ 208 ShiftChange0 "Most recent input request by driver";
+CM_ SG_ 208 ShiftChangeCount "Incrementing change counter";
+CM_ SG_ 209 ShiftChecksum "Checksum of message
+";
+CM_ SG_ 209 ShiftRollingCounter "Rolling counter";
+CM_ SG_ 209 ShifterFailure "Indicates shifter failure";
+CM_ SG_ 209 ParkLightStatus "Status of Park Light illumination state";
+CM_ SG_ 209 ShiftHistory2 "Third most recent input request by driver. This should be the last value of Change0 when a new input is made.";
+CM_ SG_ 209 ShiftHistory1 "Second most recent input request by driver. This should be the last value of Change0 when a new input is made.";
+CM_ SG_ 209 ShiftChange0 "Most recent input request by driver";
+CM_ SG_ 209 ShiftChangeCount "Incrementing change counter";
+CM_ BO_ 2348941089 "Transmission Control 1
+Messages that are requesting control over the receiving device are transmitted at high rate only during the time when the control is active, but may be optionally sent at a slow rate as a \"heartbeat.\"";
+CM_ SG_ 2348941089 TransMode8 "Indicates whether transmission mode 8 is enabled. Modes are manufacturer specific and are not necessarily mutually exclusive. See also SPN 4253.
+
+00  Disable
+01  Enable
+10  Reserved
+11  Take no action";
+CM_ SG_ 2348941089 TransMode7 "Indicates whether transmission mode 7 is enabled. Modes are manufacturer specific and are not necessarily mutually exclusive. See also SPN 4252.
+
+00  Disable
+01  Enable
+10  Reserved
+11  Take no action";
+CM_ SG_ 2348941089 TransMode6 "Indicates whether transmission mode 6 is enabled. Modes are manufacturer specific and are not necessarily mutually exclusive. See also SPN 4251.
+
+00  Disable
+01  Enable
+10  Reserved
+11  Take no action";
+CM_ SG_ 2348941089 TransMode5 "Indicates whether transmission mode 5 is enabled. Modes are manufacturer specific and are not necessarily mutually exclusive. See also SPN 4250.
+
+00  Disable
+01  Enable
+10  Reserved
+11  Take no action";
+CM_ SG_ 2348941089 TrnsShftSlectorDisplayModeSwitch "Status of the operator’s switch used to ‘toggle’ through multiple display modes of a shift selector display.
+When a shift selector display is capable of displaying more than just range information, this switch is toggled by the operator to move ...";
+CM_ SG_ 2348941089 TransRequestedLaunchGear "Initial gear for the transmission to start out in when the vehicle is launched from a standing stop, as specified by the vehicle operator or vehicle system.  Automatic transmissions typically default to starting out in 1st gear.  However, in ...";
+CM_ SG_ 2348941089 AutoNeutralReq "This parameter conveys a vehicle system desire to override the operator’s current shift selector request (e.g. Drive, Reverse) and shift the transmission into Neutral. “Manual Return” indicates this parameter has the ability to initiate a ...";
+CM_ SG_ 2348941089 TransMode4 "Indicates whether transmission mode 4 is enabled.  Modes are manufacturer specific and are not necessarily mutually exclusive.  See also SPN 2539.
+
+00 Disable
+01 Enable
+10 Reserved
+11 Take no action";
+CM_ SG_ 2348941089 TransMode3 "Indicates whether transmission mode 3 is enabled.  Modes are manufacturer specific and are not necessarily mutually exclusive.  See also SPN 2538.
+
+00 Disable
+01 Enable
+10 Reserved
+11 Take no action";
+CM_ SG_ 2348941089 TransMode2 "Indicates whether transmission mode 2 is enabled.  Modes are manufacturer specific and are not necessarily mutually exclusive.  See also SPN 2537.
+
+00 Disable
+01 Enable
+10 Reserved
+11 Take no action";
+CM_ SG_ 2348941089 TransMode1 "Indicates whether transmission mode 1 is enabled.  Modes are manufacturer specific and are not necessarily mutually exclusive.  See also SPN 2536.
+
+00 Disable
+01 Enable
+10 Reserved
+11 Take no action";
+CM_ SG_ 2348941089 TransLoadReductionInhibitRq "Request signal to the transmission to inhibit activation of load reduction functions.
+Automatic transmissions may incorporate functions designed to reduce engine load during certain operating conditions (vehicle standstill at bus stop, traffic ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqCentralRear "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqCentralFront "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqCentral "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqRearAxle2 "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqRearAxle1 "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqFrontAxle2 "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 DisengageDiffLockRqFrontAxle1 "Command signal used to disengage the various differential locks, e.g., to allow an undistributed individual wheel control by ABS.  The differential locks are located as defined in Figure SPN564_A.
+00 Engage differential lock
+01 Disengage ...";
+CM_ SG_ 2348941089 TransRequestedGear "Gear requested by the operator, ABS, or engine.
+Negative values are reverse gears, positive values are forward gears, zero is neutral, parameter specific indicators are listed below.
+Parameter specific values for this parameter are as follows:
+ ...";
+CM_ SG_ 2348941089 RequestedPercentClutchSlip "Parameter which represents the percent clutch slip requested by a device.";
+CM_ SG_ 2348941089 TransReverseGearShiftInhibitRq "Allows devices external to the normal transmission shift selector system to request the transmission to inhibit shifts into any Reverse gear and force the transmission into Neutral if it is currently in Reverse or attempting to shift to Reverse ...";
+CM_ SG_ 2348941089 DisengageDrivelineRq "Command signal used to simply disengage the driveline, e.g., to prevent engine drag torque from causing high wheel slip on slippery surfaces.
+00 Allow driveline engagement
+01 Disengage driveline
+10 Reserved
+11 Take no action
+Note:  If this ...";
+CM_ SG_ 2348941089 TrnsTrqeConverterLockupDisableRq "Command signal to override normal transmission control of the torque converter lockup clutch. This command may be used to control lockup as needed for different operating modes or environmental conditions. For example, the torque converter lockup ...";
+CM_ SG_ 2348941089 TransGearShiftInhibitRq "Command signal to inhibit gear shifts.
+
+00 Gear shifts are allowed  (disable function)
+01 Gear shifts are inhibited  (enable function)
+10 Reserved
+11 Take no action  (leave function as is)";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 100000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ SG_  "SigType" ENUM  "Default","Range","RangeSigned","ASCII","Discrete","Control","ReferencePGN","DTC","StringDelimiter","StringLength","StringLengthControl","MessageCounter","MessageChecksum";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 2147483647;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigILSupport" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigEVName" STRING ;
+BA_DEF_ SG_  "SPN" INT 0 524287;
+BA_DEF_ BO_  "TpJ1939VarDlc" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 1000000;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 3600000;
+BA_DEF_ BO_  "GenMsgFastOnStart" INT 0 100000;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 100000;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 1000;
+BA_DEF_ BO_  "GenMsgRequestable" INT 0 1;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "cyclic","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","IfActive","noMsgSendType";
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","J1939PG";
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "NmStationAddress" INT 0 255;
+BA_DEF_ BU_  "NmJ1939AAC" INT 0 1;
+BA_DEF_ BU_  "NmJ1939IndustryGroup" INT 0 7;
+BA_DEF_ BU_  "NmJ1939System" INT 0 127;
+BA_DEF_ BU_  "NmJ1939SystemInstance" INT 0 15;
+BA_DEF_ BU_  "NmJ1939Function" INT 0 255;
+BA_DEF_ BU_  "NmJ1939FunctionInstance" INT 0 7;
+BA_DEF_ BU_  "NmJ1939ECUInstance" INT 0 3;
+BA_DEF_ BU_  "NmJ1939ManufacturerCode" INT 0 2047;
+BA_DEF_ BU_  "NmJ1939IdentityNumber" INT 0 2097151;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_  "SAE_J1939_DA_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_81_SpecVersion" STRING ;
+BA_DEF_  "DatabaseVersion" STRING ;
+BA_DEF_  "ProtocolType" STRING ;
+BA_DEF_  "SAE_J1939_75_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_21_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_73_SpecVersion" STRING ;
+BA_DEF_  "SAE_J1939_71_SpecVersion" STRING ;
+BA_DEF_ SG_  "SystemSignalLongSymbol" STRING ;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "SigType" "Default";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "NoSigSendType";
+BA_DEF_DEF_  "GenSigILSupport" "Yes";
+BA_DEF_DEF_  "GenSigEVName" "Env@Nodename_@Signame";
+BA_DEF_DEF_  "SPN" 0;
+BA_DEF_DEF_  "TpJ1939VarDlc" "No";
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgFastOnStart" 0;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgRequestable" 1;
+BA_DEF_DEF_  "GenMsgSendType" "noMsgSendType";
+BA_DEF_DEF_  "VFrameFormat" "J1939PG";
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "NmStationAddress" 254;
+BA_DEF_DEF_  "NmJ1939AAC" 0;
+BA_DEF_DEF_  "NmJ1939IndustryGroup" 0;
+BA_DEF_DEF_  "NmJ1939System" 0;
+BA_DEF_DEF_  "NmJ1939SystemInstance" 0;
+BA_DEF_DEF_  "NmJ1939Function" 0;
+BA_DEF_DEF_  "NmJ1939FunctionInstance" 0;
+BA_DEF_DEF_  "NmJ1939ECUInstance" 0;
+BA_DEF_DEF_  "NmJ1939ManufacturerCode" 0;
+BA_DEF_DEF_  "NmJ1939IdentityNumber" 0;
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "SAE_J1939_DA_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_81_SpecVersion" "";
+BA_DEF_DEF_  "DatabaseVersion" "";
+BA_DEF_DEF_  "ProtocolType" "";
+BA_DEF_DEF_  "SAE_J1939_75_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_21_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_73_SpecVersion" "";
+BA_DEF_DEF_  "SAE_J1939_71_SpecVersion" "";
+BA_DEF_DEF_  "SystemSignalLongSymbol" "";
+BA_ "SAE_J1939_71_SpecVersion" "2016-10";
+BA_ "SAE_J1939_73_SpecVersion" "2013-07";
+BA_ "SAE_J1939_21_SpecVersion" "2016-03";
+BA_ "SAE_J1939_75_SpecVersion" "2015-11";
+BA_ "ProtocolType" "J1939";
+BA_ "BusType" "CAN";
+BA_ "DatabaseVersion" "10.0";
+BA_ "SAE_J1939_81_SpecVersion" "2017-03";
+BA_ "SAE_J1939_DA_SpecVersion" "2018-02";
+BA_ "DBName" "J1939";
+BA_ "NmStationAddress" BU_ VCU 90;
+BA_ "NmStationAddress" BU_ VCU 90;
+BA_ "NmStationAddress" BU_ GCMR 4;
+BA_ "NmStationAddress" BU_ GCMF 3;
+BA_ "NmStationAddress" BU_ BCU 33;
+BA_ "GenMsgCycleTime" BO_ 172 10;
+BA_ "GenMsgCycleTime" BO_ 194 10;
+BA_ "GenMsgCycleTime" BO_ 193 10;
+BA_ "GenMsgCycleTime" BO_ 192 5;
+BA_ "GenMsgCycleTime" BO_ 171 100;
+BA_ "GenMsgCycleTime" BO_ 170 100;
+BA_ "GenMsgCycleTime" BO_ 169 100;
+BA_ "GenMsgCycleTime" BO_ 168 10;
+BA_ "GenMsgCycleTime" BO_ 167 10;
+BA_ "GenMsgCycleTime" BO_ 166 10;
+BA_ "GenMsgCycleTime" BO_ 165 10;
+BA_ "GenMsgCycleTime" BO_ 164 10;
+BA_ "GenMsgCycleTime" BO_ 163 10;
+BA_ "GenMsgCycleTime" BO_ 162 100;
+BA_ "GenMsgCycleTime" BO_ 161 100;
+BA_ "GenMsgCycleTime" BO_ 160 100;
+BA_ "SystemSignalLongSymbol" SG_ 469 D1_HV_Input_Current_Sensor_Valid "D1_HV_Input_Current_Sensor_Validity";
+BA_ "VFrameFormat" BO_ 208 0;
+BA_ "GenMsgCycleTime" BO_ 208 50;
+BA_ "VFrameFormat" BO_ 209 0;
+BA_ "GenMsgCycleTime" BO_ 209 20;
+BA_ "GenMsgCycleTime" BO_ 2348941089 50;
+BA_ "GenMsgSendType" BO_ 2348941089 0;
+BA_ "VFrameFormat" BO_ 2348941089 3;
+BA_ "SPN" SG_ 2348941089 TransMode8 4249;
+BA_ "SigType" SG_ 2348941089 TransMode8 5;
+BA_ "SPN" SG_ 2348941089 TransMode7 4248;
+BA_ "SigType" SG_ 2348941089 TransMode7 5;
+BA_ "SPN" SG_ 2348941089 TransMode6 4247;
+BA_ "SigType" SG_ 2348941089 TransMode6 5;
+BA_ "SPN" SG_ 2348941089 TransMode5 4246;
+BA_ "SigType" SG_ 2348941089 TransMode5 5;
+BA_ "SPN" SG_ 2348941089 TrnsShftSlectorDisplayModeSwitch 2985;
+BA_ "SigType" SG_ 2348941089 TrnsShftSlectorDisplayModeSwitch 4;
+BA_ "SPN" SG_ 2348941089 TransRequestedLaunchGear 4255;
+BA_ "SigType" SG_ 2348941089 TransRequestedLaunchGear 0;
+BA_ "SPN" SG_ 2348941089 AutoNeutralReq 7695;
+BA_ "SigType" SG_ 2348941089 AutoNeutralReq 5;
+BA_ "SPN" SG_ 2348941089 TransMode4 1855;
+BA_ "SigType" SG_ 2348941089 TransMode4 5;
+BA_ "SPN" SG_ 2348941089 TransMode3 1854;
+BA_ "SigType" SG_ 2348941089 TransMode3 5;
+BA_ "SPN" SG_ 2348941089 TransMode2 1853;
+BA_ "SigType" SG_ 2348941089 TransMode2 5;
+BA_ "SPN" SG_ 2348941089 TransMode1 1852;
+BA_ "SigType" SG_ 2348941089 TransMode1 5;
+BA_ "SPN" SG_ 2348941089 TransLoadReductionInhibitRq 5762;
+BA_ "SigType" SG_ 2348941089 TransLoadReductionInhibitRq 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqCentralRear 691;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqCentralRear 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqCentralFront 690;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqCentralFront 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqCentral 689;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqCentral 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqRearAxle2 688;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqRearAxle2 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqRearAxle1 687;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqRearAxle1 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqFrontAxle2 686;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqFrontAxle2 5;
+BA_ "SPN" SG_ 2348941089 DisengageDiffLockRqFrontAxle1 685;
+BA_ "SigType" SG_ 2348941089 DisengageDiffLockRqFrontAxle1 5;
+BA_ "SPN" SG_ 2348941089 TransRequestedGear 525;
+BA_ "GenSigStartValue" SG_ 2348941089 TransRequestedGear 61;
+BA_ "SigType" SG_ 2348941089 TransRequestedGear 1;
+BA_ "SPN" SG_ 2348941089 RequestedPercentClutchSlip 684;
+BA_ "SigType" SG_ 2348941089 RequestedPercentClutchSlip 1;
+BA_ "SPN" SG_ 2348941089 TransReverseGearShiftInhibitRq 4242;
+BA_ "SigType" SG_ 2348941089 TransReverseGearShiftInhibitRq 5;
+BA_ "SPN" SG_ 2348941089 DisengageDrivelineRq 683;
+BA_ "SigType" SG_ 2348941089 DisengageDrivelineRq 5;
+BA_ "SPN" SG_ 2348941089 TrnsTrqeConverterLockupDisableRq 682;
+BA_ "SigType" SG_ 2348941089 TrnsTrqeConverterLockupDisableRq 5;
+BA_ "SPN" SG_ 2348941089 TransGearShiftInhibitRq 681;
+BA_ "SigType" SG_ 2348941089 TransGearShiftInhibitRq 5;
+VAL_ 192 Inverter_Discharge 0 "Discharge Disable" 1 "Discharge Enable (if EEPROM parameter is set)" ;
+VAL_ 192 Inverter_Enable 0 "Turn the inverter OFF" 1 "Turn the Inverter ON" ;
+VAL_ 192 Direction_Command 0 "CW" 1 "CCW" ;
+VAL_ 170 D2_Inverter_State 0 "Power up" 1 "Stop" 2 "Open Loop" 3 "Closed Loop" 4 "Internal State" 5 "Internal State" 6 "Internal State" 7 "Internal State" 8 "Idle Run" 9 "Idle Stop" 10 "Internal State" 11 "Intern State" 12 "Internal State" ;
+VAL_ 170 D1_VSM_State 0 "VSM Start State" 1 "Pre-Charge Init state" 2 "pre-charge active state" 3 "pre-charge complete state" 4 "VSM wait state" 5 "VSM ready state" 6 "Motor Running State" 7 "blink fault code state" 14 "Shutdown state for Key Switch Mode 1" 15 "Reset the inverter" ;
+VAL_ 208 ParkLightIlluminate 1 "Illuminated" 0 "Not Illuminated" ;
+VAL_ 208 ShiftHistory2 6 "HighLow" 5 "P" 4 "R2" 3 "R1" 2 "L1" 1 "L2" 0 "Invalid" ;
+VAL_ 208 ShiftHistory1 6 "HighLow" 5 "P" 4 "R2" 3 "R1" 2 "L1" 1 "L2" 0 "Invalid" ;
+VAL_ 208 ShiftChange0 6 "HighLow" 5 "P" 4 "R2" 3 "R1" 2 "L1" 1 "L2" 0 "Invalid" ;
+VAL_ 209 ParkLightStatus 1 "Illuminated" 0 "Not Illuminated" ;
+VAL_ 209 ShiftHistory2 6 "HighLow" 5 "P" 4 "R2" 3 "R1" 2 "L1" 1 "L2" 0 "Invalid" ;
+VAL_ 209 ShiftHistory1 6 "HighLow" 5 "P" 4 "R2" 3 "R1" 2 "L1" 1 "L2" 0 "Invalid" ;
+VAL_ 209 ShiftChange0 6 "HighLow" 5 "P" 4 "R2" 3 "R1" 2 "L1" 1 "L2" 0 "Invalid" ;
+VAL_ 2348941089 TransMode8 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode7 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode6 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode5 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TrnsShftSlectorDisplayModeSwitch 3 "Not available" 2 "Error" 1 "On" 0 "Off" ;
+VAL_ 2348941089 TransRequestedLaunchGear 15 "Not Available" 14 "Error" 13 "Allow transmission to select the optimum launch gear" 12 "Launch the vehicle in Reverse 4" 11 "Launch the vehicle in Reverse 3" 10 "Launch the vehicle in Reverse 2" 9 "Launch the vehicle in Reverse 1" 8 "Launch the vehicle in 8th gear" 7 "Launch the vehicle in 7th gear" 6 "Launch the vehicle in 6th gear" 5 "Launch the vehicle in 5th gear" 4 "Launch the vehicle in 4th gear" 3 "Launch the vehicle in 3rd gear" 2 "Launch the vehicle in 2nd gear" 1 "Launch the vehicle in 1st gear" 0 "No specific launch gear requested" ;
+VAL_ 2348941089 AutoNeutralReq 3 "Don’t Care / Take No Action" 2 "Reserved" 1 "Request to shift to Auto-Neutral state" 0 "No request to shift to Auto-Neutral state" ;
+VAL_ 2348941089 TransMode4 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode3 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode2 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransMode1 3 "Take no action" 2 "Reserved" 1 "Enable" 0 "Disable" ;
+VAL_ 2348941089 TransLoadReductionInhibitRq 3 "Don't care/take no action" 2 "Reserved" 1 "Inhibit or abort transmission load reduction functions" 0 "Allow or resume transmission load reduction functions" ;
+VAL_ 2348941089 DisengageDiffLockRqCentralRear 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqCentralFront 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqCentral 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqRearAxle2 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqRearAxle1 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqFrontAxle2 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 DisengageDiffLockRqFrontAxle1 3 "Take no action" 2 "Reserved" 1 "Disengage differential lock" 0 "Engage differential lock" ;
+VAL_ 2348941089 TransRequestedGear 223 "Reverse Selector Position" 224 "Position unknown and/or no buttons pressed" 225 "Press of momentary button to reselect current position" 226 "Between ‘Reverse’ and ‘Park’ shift selector positions" 227 "Between ‘Neutral’ and ‘Reverse’ shift selector positions" 228 "Between ‘Drive’ and ‘Neutral’ shift selector positions" 229 "Between D-1 and ‘Drive’ shift selector positions" 230 "Between D-2 and D-1 shift selector positions" 231 "Between D-3 and D-2 shift selector positions" 232 "Between D-4 and D-3 shift selector positions" 233 "Between D-5 and D-4 shift selector positions" 234 "Between D-6 and D-5 shift selector positions" 235 "Between D-7 and D-6 shift selector positions" 236 "Between two forward shift selector positions" 237 "Between two reverse shift selector positions" 238 "Between two shift selector positions" 239 "D-7: 7th forward selector position referenced from ‘Drive’" 240 "D-6: 6th forward selector position referenced from ‘Drive’" 241 "D-5: 5th forward selector position referenced from ‘Drive’" 242 "D-4: 4th forward selector position referenced from ‘Drive’" 243 "D-3: 3rd forward selector position referenced from ‘Drive’" 244 "D-2: 2nd forward selector position referenced from ‘Drive’" 245 "D-1: 1st forward selector position referenced from ‘Drive’" 246 "Downshift 2 gears from current position" 247 "Downshift 1 gear from current position" 248 "Upshift 2 gears from current position" 249 "Upshift 1 gear from current position" 250 "Forward ‘Low’ position" 251 "‘Park’ position" 252 "Forward Drive Position" 253 "Hold current gear" ;
+VAL_ 2348941089 TransReverseGearShiftInhibitRq 3 "Take no action" 2 "Reserved" 1 "Inhibit shifts into Reverse gear" 0 "Allow shifts into Reverse gear" ;
+VAL_ 2348941089 DisengageDrivelineRq 3 "Take no action" 2 "Reserved" 1 "Disengage driveline" 0 "Allow driveline engagement" ;
+VAL_ 2348941089 TrnsTrqeConverterLockupDisableRq 3 "Take no action" 2 "Request torque converter lockup" 1 "Disable torque converter lockup" 0 "Allow torque converter lockup" ;
+VAL_ 2348941089 TransGearShiftInhibitRq 3 "Take no action " 2 "Reserved" 1 "Gear shifts are inhibited " 0 "Gear shifts are allowed " ;
+
+
+

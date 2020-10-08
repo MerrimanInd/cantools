@@ -16,9 +16,7 @@ import os
 import tkinter as tk
 from tkinter import filedialog
 
-def scanForBusFolders(dirPath,searchSubDirectory=True):
-    # Create a db object
-    db = cantools.database.can.Database()
+def scanForBusFolders(dirPath,searchSubDirectory=True,merge_dbcs_in_top_path=True):
     foundDBC = False    # flag to skip write if no DBCs
     
     for file in os.listdir(dirPath):
@@ -29,12 +27,15 @@ def scanForBusFolders(dirPath,searchSubDirectory=True):
         if os.path.isfile(os.path.join(dirPath,file)):
             if filename.endswith('.dbc') and not filename.endswith('merged.dbc'):
                 print('Found a DBC file: ' + filename)
-                foundDBC = True
-                
-                # Do the thing to the DBC file
                 DBCpath = os.path.join(dirPath,filename)
-                db.merge_dbc_file(DBCpath)
-                db.refresh()
+                if not foundDBC:
+                    # Found the first dbc, make an object and load it
+                    foundDBC = True
+                    db = cantools.database.load_file(DBCpath)
+                else:
+                    # Merge subsequent dbcs into the db object
+                    db.merge_dbc_file(DBCpath)
+                    db.refresh()
                 
         elif os.path.isdir(os.path.join(dirPath,file)):
             print('Found a folder: ' + dirPath + '/' + file)
@@ -45,10 +46,13 @@ def scanForBusFolders(dirPath,searchSubDirectory=True):
                 print('Found neither :/')
     
     if foundDBC:
-        mergedDB = dirPath + '\\' + os.path.split(dirPath)[1] + '_merged.dbc'
+        if merge_dbcs_in_top_path:
+            mergedDB = os.path.split(dirPath)[0] + '\\' + os.path.basename(dirPath) + '_merged.dbc'
+        else:
+            mergedDB = dirPath + '\\' + os.path.basename(dirPath) + '_merged.dbc'
         # Check if a previous version of the merged file exists and delete it
         if os.path.exists(mergedDB):
-            print('Removing an earlier version of '+ os.path.split(dirPath)[1] + '_merged.dbc')
+            print('Removing an earlier version of '+ os.path.basename(dirPath) + '_merged.dbc')
             os.remove(mergedDB)
         # Write db object
         cantools.database.dump_file(db,mergedDB)
